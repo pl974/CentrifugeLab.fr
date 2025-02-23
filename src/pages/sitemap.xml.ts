@@ -38,7 +38,7 @@ export async function GET() {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${pages.map(page => `
         <url>
-          <loc>https://monmagnetiseurparis.fr${page}</loc>
+          <loc>https://centrifugelab.fr/${page}</loc>
           <lastmod>${new Date().toISOString()}</lastmod>
         </url>
       `).join('')}
