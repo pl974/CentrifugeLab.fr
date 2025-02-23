@@ -1,0 +1,301 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const criteresChoix = [
+  {
+    titre: 'Volume d\'Échantillon',
+    description: 'Capacité de traitement adaptée à vos besoins',
+    points: [
+      'Microtubes (0.2-2.0 mL)',
+      'Tubes standards (15-50 mL)',
+      'Grands volumes (jusqu\'à 750 mL)'
+    ],
+    importance: 'Critique pour l\'efficacité du laboratoire'
+  },
+  {
+    titre: 'Vitesse de Rotation',
+    description: 'Force centrifuge nécessaire pour votre application',
+    points: [
+      'Basse vitesse (jusqu\'à 4,000 RPM)',
+      'Haute vitesse (jusqu\'à 15,000 RPM)',
+      'Ultra-vitesse (> 50,000 RPM)'
+    ],
+    importance: 'Détermine la qualité de séparation'
+  },
+  {
+    titre: 'Contrôle de Température',
+    description: 'Protection des échantillons thermosensibles',
+    points: [
+      'Ambiante uniquement',
+      'Réfrigérée (0 à +40°C)',
+      'Cryo-centrifugation (-20°C)'
+    ],
+    importance: 'Essentiel pour la préservation'
+  },
+  {
+    titre: 'Type de Rotor',
+    description: 'Adapté à vos protocoles spécifiques',
+    points: [
+      'Angle fixe (séparation rapide)',
+      'Godets mobiles (gradients)',
+      'Vertical (séparation isopycnique)'
+    ],
+    importance: 'Impact direct sur les résultats'
+  }
+];
+
+const typesUtilisation = [
+  {
+    type: 'Recherche',
+    besoins: [
+      'Haute précision',
+      'Flexibilité des protocoles',
+      'Contrôle température',
+      'Traçabilité données'
+    ],
+    recommandations: [
+      { nom: 'Centrifugeuse Réfrigérée', url: '/centrifugeuses/refrigerees/' },
+      { nom: 'Ultracentrifugeuse', url: '/centrifugeuses/ultra/' }
+    ]
+  },
+  {
+    type: 'Diagnostic',
+    besoins: [
+      'Haut débit',
+      'Fiabilité',
+      'Simplicité utilisation',
+      'Maintenance réduite'
+    ],
+    recommandations: [
+      { nom: 'Centrifugeuse de Paillasse', url: '/centrifugeuses/paillasse/' },
+      { nom: 'Microcentrifugeuse', url: '/centrifugeuses/micro/' }
+    ]
+  },
+  {
+    type: 'Production',
+    besoins: [
+      'Grande capacité',
+      'Robustesse',
+      'Automatisation',
+      'Conformité GMP'
+    ],
+    recommandations: [
+      { nom: 'Centrifugeuse Industrielle', url: '/centrifugeuses/industrielle/' },
+      { nom: 'Centrifugeuse Continue', url: '/centrifugeuses/continue/' }
+    ]
+  }
+];
+
+const servicesComplementaires = [
+  {
+    titre: 'Installation & Formation',
+    description: 'Démarrage optimal et formation utilisateur',
+    url: '/formation-utilisation-centrifugeuse/'
+  },
+  {
+    titre: 'Maintenance Préventive',
+    description: 'Garantie performance et longévité',
+    url: '/maintenance/entretien-centrifugeuse-laboratoire/'
+  },
+  {
+    titre: 'Location Flexible',
+    description: 'Solution temporaire ou test',
+    url: '/location-centrifugeuse-laboratoire/'
+  }
+];
+
+const ressourcesUtiles = [
+  {
+    titre: 'Guides Techniques',
+    liens: [
+      { texte: 'Calcul Force G', url: '/guide/calcul-force-centrifuge/' },
+      { texte: 'Choix du Rotor', url: '/guide/choisir-rotor-centrifugeuse/' },
+      { texte: 'Protocoles', url: '/guide/protocoles-centrifugation/' }
+    ]
+  },
+  {
+    titre: 'Applications',
+    liens: [
+      { texte: 'Biologie Médicale', url: '/applications/centrifugeuse-biologie-medicale/' },
+      { texte: 'Recherche', url: '/applications/centrifugeuse-recherche-scientifique/' },
+      { texte: 'Industrie Pharma', url: '/applications/centrifugeuse-industrie-pharmaceutique/' }
+    ]
+  }
+];
+---
+
+<Layout title="Guide d'Achat Centrifugeuse Laboratoire - Conseils d'Experts">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "BuyersGuide",
+      "name": "Guide d'Achat Centrifugeuse de Laboratoire",
+      "description": "Guide expert pour choisir la centrifugeuse de laboratoire adaptée à vos besoins spécifiques. Conseils, critères de choix et recommandations personnalisées.",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Professionnels de laboratoire"
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Guide d'Achat Centrifugeuse Labo : Comment Choisir ?
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Guide expert pour sélectionner la centrifugeuse parfaitement adaptée à vos besoins.
+        Conseils personnalisés et critères essentiels pour un choix optimal.
+      </p>
+      <div class="flex gap-4">
+        <a href="/devis-centrifugeuse/?utm_source=guide_achat" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Devis Personnalisé
+          <span class="block text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+        <a href="/guide/calcul-force-centrifuge/?utm_source=guide_achat" class="btn-secondary">
+          Calculateur Force G
+          <span class="block text-sm opacity-90">Outil gratuit</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Critères de Choix -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Critères Essentiels de Choix</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {criteresChoix.map(critere => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{critere.titre}</h3>
+            <p class="text-gray-600 mb-4">{critere.description}</p>
+            
+            <ul class="space-y-2 mb-4">
+              {critere.points.map(point => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <p class="text-blue-800"><strong>Impact :</strong> {critere.importance}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Types d'Utilisation -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Solutions par Type d'Utilisation</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        {typesUtilisation.map(usage => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{usage.type}</h3>
+            
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Besoins Spécifiques :</h4>
+              <ul class="space-y-2">
+                {usage.besoins.map(besoin => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{besoin}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-medium mb-2">Solutions Recommandées :</h4>
+              <ul class="space-y-2">
+                {usage.recommandations.map(rec => (
+                  <li>
+                    <a href={rec.url} class="text-blue-600 hover:text-blue-800">
+                      {rec.nom} →
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services Complémentaires -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Services Complémentaires</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {servicesComplementaires.map(service => (
+          <a href={service.url} class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
+            <h3 class="text-xl font-semibold mb-3">{service.titre}</h3>
+            <p class="text-gray-600">{service.description}</p>
+            <div class="mt-4 text-blue-600 flex items-center">
+              En savoir plus
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Ressources Utiles -->
+    <section>
+      <h2 class="text-3xl font-semibold mb-8">Ressources Complémentaires</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {ressourcesUtiles.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.titre}</h3>
+            <ul class="space-y-3">
+              {section.liens.map(lien => (
+                <li>
+                  <a href={lien.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {lien.texte}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <div class="mt-12 bg-blue-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Besoin d'un Conseil Personnalisé ?</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Nos experts sont là pour vous guider dans le choix de votre centrifugeuse
+      </p>
+      <a href="/devis-centrifugeuse/?utm_source=guide_achat_bottom" class="btn-primary inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Contacter un Expert
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

@@ -1,0 +1,121 @@
+---
+import Navbar from '../components/Navbar.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Expert en solutions de centrifugation pour laboratoire. Large gamme de centrifugeuses adaptées à tous vos besoins. Installation et support inclus." />
+		<meta name="keywords" content="centrifugeuse laboratoire, centrifugeuse labo, ultracentrifugeuse, microcentrifugeuse, centrifugeuse réfrigérée" />
+		<meta name="author" content="CentrifugeLab" />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="Expert en solutions de centrifugation pour laboratoire. Large gamme de centrifugeuses adaptées à tous vos besoins." />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/favicon.svg" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content="Expert en solutions de centrifugation pour laboratoire. Large gamme de centrifugeuses adaptées à tous vos besoins." />
+		<meta name="twitter:image" content="/favicon.svg" />
+		<link rel="canonical" href={Astro.url.href} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<script is:inline src="/calculator.js" defer></script>
+	</head>
+	<body>
+		<Navbar />
+		<slot />
+		<footer class="bg-gray-900 text-white mt-12">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+				<div class="grid md:grid-cols-4 gap-8">
+					<!-- Contact & Info -->
+					<div>
+						<a href="/" class="text-xl font-bold text-white flex items-center gap-2 mb-4">
+							<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+								<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+								<path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2"/>
+							</svg>
+							CentrifugeLab
+						</a>
+						<p class="text-gray-400 mb-4">Expert en solutions de centrifugation pour laboratoire depuis 25 ans.</p>
+						<div class="space-y-2">
+							<p class="flex items-center">
+								<svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+									<path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+								contact@centrifugelab.fr
+							</p>
+							<p class="flex items-center">
+								<svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+									<path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+								01 23 45 67 89
+							</p>
+						</div>
+					</div>
+
+					<!-- Solutions -->
+					<div>
+						<h3 class="text-lg font-semibold mb-4">Solutions</h3>
+						<ul class="space-y-2">
+							<li><a href="/centrifugeuses/paillasse/" class="text-gray-400 hover:text-white">Centrifugeuses de Paillasse</a></li>
+							<li><a href="/centrifugeuses/micro/" class="text-gray-400 hover:text-white">Microcentrifugeuses</a></li>
+							<li><a href="/centrifugeuses/ultra/" class="text-gray-400 hover:text-white">Ultracentrifugeuses</a></li>
+							<li><a href="/centrifugeuses/refrigerees/" class="text-gray-400 hover:text-white">Centrifugeuses Réfrigérées</a></li>
+						</ul>
+					</div>
+
+					<!-- Services -->
+					<div>
+						<h3 class="text-lg font-semibold mb-4">Services</h3>
+						<ul class="space-y-2">
+							<li><a href="/formation-utilisation-centrifugeuse/" class="text-gray-400 hover:text-white">Formation</a></li>
+							<li><a href="/maintenance/entretien-centrifugeuse-laboratoire/" class="text-gray-400 hover:text-white">Maintenance</a></li>
+							<li><a href="/location-centrifugeuse-laboratoire/" class="text-gray-400 hover:text-white">Location</a></li>
+							<li><a href="/devis-centrifugeuse/" class="text-gray-400 hover:text-white">Demande de Devis</a></li>
+						</ul>
+					</div>
+
+					<!-- Ressources -->
+					<div>
+						<h3 class="text-lg font-semibold mb-4">Ressources</h3>
+						<ul class="space-y-2">
+							<li><a href="/guide-achat-centrifugeuse-laboratoire/" class="text-gray-400 hover:text-white">Guide d'Achat</a></li>
+							<li><a href="/guide/calcul-force-centrifuge/" class="text-gray-400 hover:text-white">Calculateur Force G</a></li>
+							<li><a href="/guide/protocoles-centrifugation/" class="text-gray-400 hover:text-white">Protocoles</a></li>
+							<li><a href="/securite/normes-centrifugeuse-laboratoire/" class="text-gray-400 hover:text-white">Normes & Sécurité</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="border-t border-gray-800 mt-12 pt-8">
+					<div class="flex flex-col md:flex-row justify-between items-center">
+						<p class="text-gray-400 text-sm">© 2024 CentrifugeLab. Tous droits réservés.</p>
+						<div class="flex space-x-6 mt-4 md:mt-0">
+							<a href="/mentions-legales/" class="text-gray-400 hover:text-white text-sm">Mentions Légales</a>
+							<a href="/politique-confidentialite/" class="text-gray-400 hover:text-white text-sm">Politique de Confidentialité</a>
+							<a href="/cgv/" class="text-gray-400 hover:text-white text-sm">CGV</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		@apply m-0 w-full min-h-screen bg-gray-50;
+	}
+</style>

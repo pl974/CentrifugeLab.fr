@@ -1,0 +1,273 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const maintenanceSteps = [
+  {
+    title: 'Inspection Quotidienne',
+    tasks: [
+      'Vérification visuelle du rotor',
+      'Nettoyage de la cuve',
+      'Contrôle des joints d\'étanchéité',
+      'Vérification du système de verrouillage'
+    ],
+    importance: 'Prévient 80% des pannes courantes'
+  },
+  {
+    title: 'Maintenance Hebdomadaire',
+    tasks: [
+      'Désinfection complète',
+      'Lubrification des joints',
+      'Test des systèmes de sécurité',
+      'Calibration de la vitesse'
+    ],
+    importance: 'Garantit la précision des résultats'
+  },
+  {
+    title: 'Entretien Mensuel',
+    tasks: [
+      'Inspection approfondie du moteur',
+      'Vérification de l\'équilibrage',
+      'Test des systèmes de refroidissement',
+      'Contrôle électronique complet'
+    ],
+    importance: 'Optimise la durée de vie'
+  }
+];
+
+const commonIssues = [
+  {
+    problem: 'Vibrations Excessives',
+    causes: ['Déséquilibre du rotor', 'Tubes mal répartis', 'Usure des supports'],
+    solution: 'Équilibrage immédiat des charges et inspection du système de fixation',
+    urgency: 'Haute'
+  },
+  {
+    problem: 'Bruit Anormal',
+    causes: ['Roulements usés', 'Moteur défectueux', 'Pièces desserrées'],
+    solution: 'Diagnostic professionnel et remplacement des composants',
+    urgency: 'Moyenne'
+  },
+  {
+    problem: 'Défaut de Refroidissement',
+    causes: ['Circuit obstrué', 'Compresseur défaillant', 'Fuite de fluide'],
+    solution: 'Nettoyage du circuit et contrôle d\'étanchéité',
+    urgency: 'Haute'
+  }
+];
+
+const maintenanceServices = [
+  {
+    title: 'Contrat Préventif',
+    description: 'Visites régulières programmées',
+    benefits: [
+      'Réduction des pannes de 75%',
+      'Optimisation des performances',
+      'Traçabilité complète',
+      'Conformité garantie'
+    ],
+    price: 'À partir de 89€/mois'
+  },
+  {
+    title: 'Maintenance Curative',
+    description: 'Intervention rapide sur panne',
+    benefits: [
+      'Intervention sous 24h',
+      'Diagnostic expert',
+      'Pièces d\'origine',
+      'Garantie intervention'
+    ],
+    price: 'Sur devis'
+  }
+];
+
+const relatedContent = [
+  {
+    title: 'Guides Techniques',
+    links: [
+      { text: 'Protocoles de Centrifugation', url: '/guide/protocoles-centrifugation/' },
+      { text: 'Calcul Force G', url: '/guide/calcul-force-centrifuge/' },
+      { text: 'Choix du Rotor', url: '/guide/choisir-rotor-centrifugeuse/' }
+    ]
+  },
+  {
+    title: 'Solutions Adaptées',
+    links: [
+      { text: 'Centrifugeuses de Paillasse', url: '/centrifugeuses/paillasse/' },
+      { text: 'Centrifugeuses Réfrigérées', url: '/centrifugeuses/refrigerees/' },
+      { text: 'Formation Utilisateur', url: '/formation-utilisation-centrifugeuse/' }
+    ]
+  }
+];
+---
+
+<Layout title="Guide Maintenance Centrifugeuse Laboratoire - Entretien Expert">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Maintenance de Centrifugeuse de Laboratoire",
+      "description": "Guide complet pour l'entretien et la maintenance préventive des centrifugeuses de laboratoire.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Inspection Quotidienne",
+          "text": "Vérification du rotor, nettoyage et contrôle des systèmes de sécurité"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Maintenance Hebdomadaire",
+          "text": "Désinfection, lubrification et tests des systèmes"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Entretien Mensuel",
+          "text": "Inspection approfondie et contrôle électronique"
+        }
+      ]
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Guide Maintenance Centrifugeuse Labo : Optimisez votre Équipement
+      </h1>
+      <p class="text-xl text-gray-600 mb-4">
+        Maximisez la durée de vie et les performances de votre centrifugeuse avec notre guide expert de maintenance préventive.
+      </p>
+      <div class="flex gap-4">
+        <a href="/devis-centrifugeuse/?utm_source=maintenance" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Contrat de Maintenance
+          <span class="block text-sm opacity-90">Devis sous 24h</span>
+        </a>
+        <a href="/formation-utilisation-centrifugeuse/?utm_source=maintenance" class="btn-secondary">
+          Formation Utilisateur
+          <span class="block text-sm opacity-90">Programme personnalisé</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Programme de Maintenance -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Programme de Maintenance Préventive</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        {maintenanceSteps.map(step => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{step.title}</h3>
+            <ul class="space-y-2 mb-4">
+              {step.tasks.map(task => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{task}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-4 p-3 bg-blue-50 rounded-lg text-blue-800 text-sm">
+              <strong>Impact :</strong> {step.importance}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Problèmes Courants -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Diagnostic des Problèmes Courants</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {commonIssues.map(issue => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="flex items-center mb-4">
+              <h3 class="text-xl font-semibold">{issue.problem}</h3>
+              <span class={`ml-auto px-3 py-1 rounded-full text-sm ${
+                issue.urgency === 'Haute' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800'
+              }`}>
+                {issue.urgency}
+              </span>
+            </div>
+            <div class="mb-4">
+              <h4 class="font-medium mb-2">Causes Possibles :</h4>
+              <ul class="list-disc list-inside text-gray-600">
+                {issue.causes.map(cause => (
+                  <li>{cause}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
+              <strong>Solution :</strong> {issue.solution}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services de Maintenance -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Nos Services de Maintenance</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {maintenanceServices.map(service => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-2xl font-semibold mb-2">{service.title}</h3>
+            <p class="text-gray-600 mb-4">{service.description}</p>
+            <ul class="space-y-3 mb-6">
+              {service.benefits.map(benefit => (
+                <li class="flex items-center">
+                  <svg class="w-5 h-5 text-blue-600 mr-2" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+            <div class="flex items-center justify-between">
+              <span class="text-lg font-semibold text-blue-600">{service.price}</span>
+              <a href="/devis-centrifugeuse/?service={service.title.toLowerCase()}&utm_source=maintenance_services" 
+                 class="btn-primary">
+                Demander un Devis
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Related Content -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-6">Ressources Complémentaires</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {relatedContent.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.title}</h3>
+            <ul class="space-y-3">
+              {section.links.map(link => (
+                <li>
+                  <a href={link.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

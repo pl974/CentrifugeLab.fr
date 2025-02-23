@@ -1,0 +1,57 @@
+import Layout from '../../../layouts/Layout.astro';
+
+const calculatorStyles = {
+  container: 'bg-white rounded-lg shadow-sm p-6 mb-8',
+  input: 'w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500',
+  label: 'block text-sm font-medium text-gray-700 mb-1',
+  result: 'mt-4 p-4 bg-blue-50 rounded-lg text-blue-900 font-medium',
+  button: 'mt-4 w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+};
+
+const formules = [
+@@ .. @@
+      <p class="text-xl text-gray-600 mb-8">
+        Comprendre et calculer la force centrifuge pour optimiser vos protocoles de centrifugation.
+      </p>
+
+      <!-- Calculateur RCF -->
+      <div class={calculatorStyles.container}>
+        <h2 class="text-2xl font-semibold mb-6">Calculateur de Force Centrifuge Relative (RCF)</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="rpm" class={calculatorStyles.label}>
+              Vitesse de Rotation (RPM)
+            </label>
+            <input
+              type="number"
+              id="rpm"
+              min="0"
+              step="100"
+              class={calculatorStyles.input}
+              placeholder="Ex: 3000"
+            />
+          </div>
+          <div>
+            <label for="radius" class={calculatorStyles.label}>
+              Rayon de Rotation (cm)
+            </label>
+            <input
+              type="number"
+              id="radius"
+              min="0"
+              step="0.1"
+              class={calculatorStyles.input}
+              placeholder="Ex: 10"
+            />
+          </div>
+        </div>
+        <div id="rcfResult" class={calculatorStyles.result}>
+          Force Centrifuge Relative (RCF): <span>0</span> × g
+        </div>
+      </div>
+@@ .. @@
+<style>
+  code {
+    @apply bg-gray-50 px-2 py-1 rounded;
+  }
+</style>

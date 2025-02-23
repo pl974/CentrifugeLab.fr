@@ -1,0 +1,175 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const categories = [
+  {
+    slug: 'paillasse',
+    title: 'Centrifugeuses de Paillasse',
+    description: 'Solutions polyvalentes pour laboratoires',
+    specs: ['Volume: 0.2-750mL', 'Vitesse: jusqu\'à 15,000 RPM', 'Applications multiples'],
+    applications: [
+      { title: 'Biologie Médicale', link: '/applications/centrifugeuse-biologie-medicale/' },
+      { title: 'Recherche Scientifique', link: '/applications/centrifugeuse-recherche-scientifique/' }
+    ]
+  },
+  {
+    slug: 'micro',
+    title: 'Microcentrifugeuses',
+    description: 'Idéales pour les petits volumes',
+    specs: ['Volume: 0.2-2.0mL', 'Vitesse: jusqu\'à 21,000 RPM', 'Compact et silencieux'],
+    applications: [
+      { title: 'Biologie Moléculaire', link: '/applications/centrifugeuse-biologie-moleculaire/' },
+      { title: 'PCR et Séquençage', link: '/applications/centrifugeuse-pcr-sequencage/' }
+    ]
+  },
+  {
+    slug: 'ultra',
+    title: 'Ultracentrifugeuses',
+    description: 'Performance maximale pour la recherche',
+    specs: ['Volume: 0.2-30mL', 'Vitesse: jusqu\'à 150,000 RPM', 'Contrôle précis'],
+    applications: [
+      { title: 'Industrie Pharmaceutique', link: '/applications/centrifugeuse-industrie-pharmaceutique/' },
+      { title: 'Chimie Analytique', link: '/applications/centrifugeuse-chimie-analytique/' }
+    ]
+  },
+  {
+    slug: 'refrigerees',
+    title: 'Centrifugeuses Réfrigérées',
+    description: 'Contrôle optimal de la température',
+    specs: ['Température: -20°C à +40°C', 'Vitesse: jusqu\'à 30,000 RPM', 'Stabilité thermique'],
+    applications: [
+      { title: 'Environnement', link: '/applications/centrifugeuse-environnement/' },
+      { title: 'Préparation d\'échantillons', link: '/applications/preparation-echantillons/' }
+    ]
+  }
+];
+
+const relatedContent = [
+  {
+    title: 'Guide de Choix',
+    links: [
+      { text: 'Comment choisir son rotor', url: '/guide/choisir-rotor-centrifugeuse/' },
+      { text: 'Calcul de la force centrifuge', url: '/guide/calcul-force-centrifuge/' },
+      { text: 'Protocoles de centrifugation', url: '/guide/protocoles-centrifugation/' }
+    ]
+  },
+  {
+    title: 'Maintenance & Sécurité',
+    links: [
+      { text: 'Entretien préventif', url: '/maintenance/entretien-centrifugeuse-laboratoire/' },
+      { text: 'Normes de sécurité', url: '/securite/normes-centrifugeuse-laboratoire/' },
+      { text: 'Formation utilisateur', url: '/formation-utilisation-centrifugeuse/' }
+    ]
+  }
+];
+---
+
+<Layout title="Catalogue Centrifugeuses de Laboratoire - Toutes les Solutions">
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Centrifugeuses de Laboratoire",
+      "description": "Large gamme de centrifugeuses pour laboratoire : centrifugeuses de paillasse, microcentrifugeuses, ultracentrifugeuses et centrifugeuses réfrigérées.",
+      "brand": {
+        "@type": "Brand",
+        "name": "CentrifugeLab"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Centrifugeuse Labo : Guide Complet et Solutions
+      </h1>
+      <p class="text-xl text-gray-600">
+        Découvrez notre gamme complète de centrifugeuses de laboratoire adaptées à tous vos besoins.
+        Expertise technique et support personnalisé pour votre équipement.
+      </p>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="bg-gray-50 p-6 rounded-lg mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Navigation Rapide</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {categories.map(category => (
+          <a href={`/centrifugeuses/${category.slug}/`} 
+             class="flex items-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow duration-200">
+            <span class="text-blue-600 mr-2">→</span>
+            <span class="font-medium">{category.title}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Categories -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      {categories.map(category => (
+        <div class="bg-white rounded-lg shadow-sm p-6">
+          <h2 class="text-2xl font-semibold mb-4">
+            <a href={`/centrifugeuses/${category.slug}/`} class="text-blue-600 hover:text-blue-800">
+              {category.title}
+            </a>
+          </h2>
+          <p class="text-gray-600 mb-4">{category.description}</p>
+          
+          <div class="mb-6">
+            <h3 class="text-lg font-medium mb-2">Spécifications Clés:</h3>
+            <ul class="list-disc list-inside text-gray-600">
+              {category.specs.map(spec => (
+                <li>{spec}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="mb-6">
+            <h3 class="text-lg font-medium mb-2">Applications Principales:</h3>
+            <ul class="space-y-2">
+              {category.applications.map(app => (
+                <li>
+                  <a href={app.link} class="text-blue-600 hover:text-blue-800">
+                    {app.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a href={`/devis-centrifugeuse/?type=${category.slug}`} class="btn-primary">
+            Demander un Devis
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- Related Content -->
+    <div class="grid md:grid-cols-2 gap-8">
+      {relatedContent.map(section => (
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h2 class="text-xl font-semibold mb-4">{section.title}</h2>
+          <ul class="space-y-3">
+            {section.links.map(link => (
+              <li>
+                <a href={link.url} class="text-blue-600 hover:text-blue-800">
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+  }
+</style>

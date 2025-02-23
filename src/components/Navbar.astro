@@ -1,0 +1,232 @@
+---
+import { Image } from 'astro:assets';
+
+const menuItems = [
+  {
+    title: 'Catalogue',
+    url: '/centrifugeuses/?utm_source=nav',
+    submenu: [
+      { title: 'Centrifugeuses de Paillasse', url: '/centrifugeuses/paillasse/?utm_source=nav' },
+      { title: 'Microcentrifugeuses', url: '/centrifugeuses/micro/?utm_source=nav' },
+      { title: 'Ultracentrifugeuses', url: '/centrifugeuses/ultra/?utm_source=nav' },
+      { title: 'Centrifugeuses Réfrigérées', url: '/centrifugeuses/refrigerees/?utm_source=nav' }
+    ]
+  },
+  {
+    title: 'Guides',
+    url: '/guide-achat-centrifugeuse-laboratoire/?utm_source=nav',
+    submenu: [
+      { title: 'Guide d\'Achat', url: '/guide-achat-centrifugeuse-laboratoire/?utm_source=nav' },
+      { title: 'Choix du Rotor', url: '/guide/choisir-rotor-centrifugeuse/?utm_source=nav' },
+      { title: 'Calcul Force G', url: '/guide/calcul-force-centrifuge/?utm_source=nav' },
+      { title: 'Protocoles', url: '/guide/protocoles-centrifugation/?utm_source=nav' }
+    ]
+  },
+  {
+    title: 'Applications',
+    url: '/applications/?utm_source=nav',
+    submenu: [
+      { title: 'Biologie Médicale', url: '/applications/centrifugeuse-biologie-medicale/?utm_source=nav' },
+      { title: 'Recherche Scientifique', url: '/applications/centrifugeuse-recherche-scientifique/?utm_source=nav' },
+      { title: 'Industrie Pharmaceutique', url: '/applications/centrifugeuse-industrie-pharmaceutique/?utm_source=nav' },
+      { title: 'Chimie Analytique', url: '/applications/centrifugeuse-chimie-analytique/?utm_source=nav' },
+      { title: 'Environnement', url: '/applications/centrifugeuse-environnement/?utm_source=nav' }
+    ]
+  },
+  {
+    title: 'Services',
+    url: '/services/?utm_source=nav',
+    submenu: [
+      { title: 'Maintenance', url: '/maintenance/entretien-centrifugeuse-laboratoire/?utm_source=nav' },
+      { title: 'Formation', url: '/formation-utilisation-centrifugeuse/?utm_source=nav' },
+      { title: 'Location', url: '/location-centrifugeuse-laboratoire/?utm_source=nav' }
+    ]
+  }
+];
+---
+
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center space-x-2">
+        <a href="/" class="text-xl font-bold text-blue-600 flex items-center gap-2">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          CentrifugeLab
+        </a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex lg:items-center lg:space-x-6">
+        {menuItems.map(item => (
+          <div class="relative group">
+            <a href={item.url} class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium flex items-center gap-1">
+              {item.title}
+              {item.submenu && (
+                <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+            </a>
+            
+            {item.submenu && (
+              <div class="absolute z-10 left-0 mt-1 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transform -translate-y-2 group-hover:translate-y-0 transition-all duration-200 ease-out">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                  <div class="relative grid gap-1 bg-white p-3">
+                    {item.submenu.map(subItem => (
+                      <a
+                        href={subItem.url}
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors duration-150"
+                      >
+                        {subItem.title}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+
+        <a href="/devis-centrifugeuse/?utm_source=nav_cta" class="btn-primary">
+          <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Demander un Devis
+          <span class="ml-1 text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="lg:hidden flex items-center">
+        <button
+          type="button"
+          class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-150"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Ouvrir le menu</span>
+          <svg
+            class="block h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="hidden lg:hidden transform transition-transform duration-200 ease-out" id="mobile-menu">
+    <div class="px-4 pt-3 pb-4 space-y-2 bg-white border-t">
+      {menuItems.map(item => (
+        <div class="mobile-menu-item">
+          <button
+            class="w-full text-left px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md flex justify-between items-center transition-colors duration-150"
+            aria-expanded="false"
+          >
+            {item.title}
+            <svg
+              class="ml-2 h-5 w-5 transition-transform duration-200"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          
+          <div class="hidden pl-4 space-y-1 mt-1">
+            {item.submenu?.map(subItem => (
+              <a
+                href={subItem.url}
+                class="block px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-150"
+              >
+                {subItem.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+      
+      <a href="/devis-centrifugeuse/" class="block w-full text-center px-4 py-3 btn-primary mt-4">
+        <svg class="w-4 h-4 inline-block mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Demander un Devis
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-150;
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  let isMenuOpen = false;
+
+  mobileMenuButton?.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+    mobileMenuButton.setAttribute('aria-expanded', isMenuOpen.toString());
+    mobileMenu?.classList.toggle('hidden');
+    
+    // Rotate menu icon
+    const menuIcon = mobileMenuButton.querySelector('svg');
+    if (menuIcon) {
+      menuIcon.style.transform = isMenuOpen ? 'rotate(180deg)' : '';
+    }
+  });
+
+  // Mobile submenu toggles
+  document.querySelectorAll('.mobile-menu-item').forEach(item => {
+    const button = item.querySelector('button');
+    const submenu = item.querySelector('div');
+
+    button?.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', (!isExpanded).toString());
+      submenu?.classList.toggle('hidden');
+      
+      // Rotate arrow icon
+      const arrow = button.querySelector('svg');
+      if (arrow) {
+        arrow.style.transform = isExpanded ? '' : 'rotate(180deg)';
+      }
+    });
+  });
+
+  // Close mobile menu on window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024 && !mobileMenu?.classList.contains('hidden')) {
+      mobileMenu?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+      isMenuOpen = false;
+    }
+  });
+</script>

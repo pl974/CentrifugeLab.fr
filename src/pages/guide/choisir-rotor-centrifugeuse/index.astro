@@ -1,0 +1,209 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const typesRotors = [
+  {
+    type: 'Rotor à Godets Mobiles',
+    avantages: [
+      'Séparation nette des phases',
+      'Idéal pour les tubes de prélèvement',
+      'Adapté aux gradients de densité'
+    ],
+    applications: [
+      'Séparation de sang',
+      'Culture cellulaire',
+      'Analyses cliniques'
+    ],
+    specifications: {
+      vitesse: 'Jusqu\'à 4,500 RPM',
+      volume: '1.5 mL à 750 mL',
+      angles: 'Horizontal en rotation'
+    }
+  },
+  {
+    type: 'Rotor Angulaire Fixe',
+    avantages: [
+      'Vitesses plus élevées',
+      'Excellente stabilité',
+      'Pellets compacts'
+    ],
+    applications: [
+      'Isolation d\'ADN/ARN',
+      'Ultracentrifugation',
+      'Purification de protéines'
+    ],
+    specifications: {
+      vitesse: 'Jusqu\'à 150,000 RPM',
+      volume: '0.2 mL à 250 mL',
+      angles: '23° à 45°'
+    }
+  },
+  {
+    type: 'Rotor Vertical',
+    avantages: [
+      'Temps de séparation courts',
+      'Résolution maximale',
+      'Gradients isopycniques'
+    ],
+    applications: [
+      'Séparation de lipoprotéines',
+      'Purification de virus',
+      'Isolation de membranes'
+    ],
+    specifications: {
+      vitesse: 'Jusqu\'à 100,000 RPM',
+      volume: '4 mL à 180 mL',
+      angles: '90°'
+    }
+  }
+];
+
+const criteresChoix = [
+  {
+    critere: 'Volume d\'Échantillon',
+    description: 'Déterminez la capacité totale nécessaire et le nombre de tubes à centrifuger simultanément.',
+    impact: 'Influence directe sur la productivité et l\'efficacité du laboratoire.'
+  },
+  {
+    critere: 'Vitesse Maximale',
+    description: 'Vérifiez la vitesse maximale requise pour vos applications spécifiques.',
+    impact: 'Détermine la force centrifuge disponible et le temps de traitement.'
+  },
+  {
+    critere: 'Type de Séparation',
+    description: 'Choisissez entre séparation en gradient, pelleting ou séparation de phases.',
+    impact: 'Affecte la qualité et la pureté des échantillons obtenus.'
+  },
+  {
+    critere: 'Compatibilité',
+    description: 'Assurez-vous de la compatibilité avec votre centrifugeuse et vos tubes.',
+    impact: 'Critique pour la sécurité et la performance.'
+  }
+];
+
+const relatedContent = [
+  {
+    title: 'Guides Techniques',
+    links: [
+      { text: 'Calcul de la Force G', url: '/guide/calcul-force-centrifuge/' },
+      { text: 'Protocoles de Centrifugation', url: '/guide/protocoles-centrifugation/' },
+      { text: 'Maintenance Préventive', url: '/maintenance/entretien-centrifugeuse-laboratoire/' }
+    ]
+  },
+  {
+    title: 'Solutions Adaptées',
+    links: [
+      { text: 'Centrifugeuses de Paillasse', url: '/centrifugeuses/paillasse/' },
+      { text: 'Ultracentrifugeuses', url: '/centrifugeuses/ultra/' },
+      { text: 'Centrifugeuses Réfrigérées', url: '/centrifugeuses/refrigerees/' }
+    ]
+  }
+];
+---
+
+<Layout title="Guide Choix de Rotor - Expert Centrifugation">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Guide Expert : Choisir le Bon Rotor de Centrifugeuse
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Optimisez vos résultats en sélectionnant le rotor parfaitement adapté à vos besoins.
+      </p>
+      <div class="flex gap-4">
+        <a href="/devis-centrifugeuse/" class="btn-primary">
+          Demander un Devis
+        </a>
+        <a href="/guide/calcul-force-centrifuge/" class="btn-secondary">
+          Calculer la Force G
+        </a>
+      </div>
+    </div>
+
+    <!-- Types de Rotors -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6">Types de Rotors et Applications</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        {typesRotors.map(rotor => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{rotor.type}</h3>
+            
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Avantages:</h4>
+              <ul class="list-disc list-inside text-gray-600">
+                {rotor.avantages.map(avantage => (
+                  <li>{avantage}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Applications:</h4>
+              <ul class="list-disc list-inside text-gray-600">
+                {rotor.applications.map(application => (
+                  <li>{application}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h4 class="font-medium mb-2">Spécifications:</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li><strong>Vitesse:</strong> {rotor.specifications.vitesse}</li>
+                <li><strong>Volume:</strong> {rotor.specifications.volume}</li>
+                <li><strong>Angles:</strong> {rotor.specifications.angles}</li>
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Critères de Choix -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6">Critères de Sélection</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {criteresChoix.map(critere => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{critere.critere}</h3>
+            <p class="text-gray-600 mb-4">{critere.description}</p>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <p class="text-blue-800"><strong>Impact:</strong> {critere.impact}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Related Content -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-6">Ressources Complémentaires</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {relatedContent.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.title}</h3>
+            <ul class="space-y-3">
+              {section.links.map(link => (
+                <li>
+                  <a href={link.url} class="text-blue-600 hover:text-blue-800">
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+  }
+</style>

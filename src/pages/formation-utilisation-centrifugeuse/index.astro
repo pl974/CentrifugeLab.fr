@@ -1,0 +1,325 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Programmes de formation détaillés
+const formationPrograms = [
+  {
+    title: 'Formation Initiale',
+    duration: '1 journée',
+    audience: 'Nouveaux utilisateurs',
+    modules: [
+      'Principes de centrifugation',
+      'Sécurité et bonnes pratiques',
+      'Utilisation des différents rotors',
+      'Maintenance de premier niveau'
+    ],
+    price: 'À partir de 490€ HT/personne'
+  },
+  {
+    title: 'Formation Avancée',
+    duration: '2 jours',
+    audience: 'Utilisateurs expérimentés',
+    modules: [
+      'Optimisation des protocoles',
+      'Résolution des problèmes',
+      'Maintenance préventive',
+      'Applications spécifiques'
+    ],
+    price: 'À partir de 890€ HT/personne'
+  },
+  {
+    title: 'Formation Sur-Mesure',
+    duration: 'Adaptable',
+    audience: 'Équipes & Laboratoires',
+    modules: [
+      'Programme personnalisé',
+      'Cas d\'usage spécifiques',
+      'Support documentation',
+      'Suivi post-formation'
+    ],
+    price: 'Sur devis'
+  }
+];
+
+// Bénéfices de la formation
+const benefits = [
+  {
+    title: 'Sécurité Optimale',
+    description: 'Maîtrise des procédures de sécurité et prévention des accidents',
+    icon: 'shield'
+  },
+  {
+    title: 'Efficacité Accrue',
+    description: 'Optimisation des protocoles et réduction des temps de traitement',
+    icon: 'clock'
+  },
+  {
+    title: 'Résultats Fiables',
+    description: 'Amélioration de la qualité et de la reproductibilité des résultats',
+    icon: 'chart'
+  },
+  {
+    title: 'Durée de Vie Prolongée',
+    description: 'Meilleure maintenance et utilisation optimale de l\'équipement',
+    icon: 'wrench'
+  }
+];
+
+// Modules de formation détaillés
+const trainingModules = [
+  {
+    title: 'Théorie de la Centrifugation',
+    topics: [
+      'Principes physiques',
+      'Forces en jeu',
+      'Types de séparation',
+      'Calculs et conversions'
+    ]
+  },
+  {
+    title: 'Pratique & Manipulation',
+    topics: [
+      'Chargement des échantillons',
+      'Équilibrage des tubes',
+      'Choix des paramètres',
+      'Récupération des fractions'
+    ]
+  },
+  {
+    title: 'Sécurité & Maintenance',
+    topics: [
+      'Procédures de sécurité',
+      'Vérifications quotidiennes',
+      'Nettoyage et désinfection',
+      'Maintenance préventive'
+    ]
+  }
+];
+
+// Témoignages clients
+const testimonials = [
+  {
+    quote: "La formation nous a permis d'optimiser significativement nos protocoles de centrifugation.",
+    author: "Dr. Sophie Martin",
+    role: "Responsable R&D, Laboratoire BioTech"
+  },
+  {
+    quote: "Excellente formation, très pratique et adaptée à nos besoins spécifiques.",
+    author: "Jean Dupont",
+    role: "Technicien de Laboratoire, CHU de Lyon"
+  }
+];
+
+const relatedContent = [
+  {
+    title: 'Ressources Techniques',
+    links: [
+      { text: 'Guide Maintenance', url: '/maintenance/entretien-centrifugeuse-laboratoire/' },
+      { text: 'Calcul Force G', url: '/guide/calcul-force-centrifuge/' },
+      { text: 'Protocoles', url: '/guide/protocoles-centrifugation/' }
+    ]
+  },
+  {
+    title: 'Solutions Adaptées',
+    links: [
+      { text: 'Centrifugeuses de Paillasse', url: '/centrifugeuses/paillasse/' },
+      { text: 'Ultracentrifugeuses', url: '/centrifugeuses/ultra/' },
+      { text: 'Maintenance Préventive', url: '/maintenance/entretien-centrifugeuse-laboratoire/' }
+    ]
+  }
+];
+---
+
+<Layout title="Formation Utilisation Centrifugeuse - Programme Expert">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Formation à l'Utilisation des Centrifugeuses de Laboratoire",
+      "description": "Programme de formation complet pour l'utilisation optimale et sécurisée des centrifugeuses de laboratoire.",
+      "provider": {
+        "@type": "Organization",
+        "name": "CentrifugeLab",
+        "sameAs": "https://centrifugelab.fr"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "490",
+        "priceCurrency": "EUR"
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Formation Centrifugeuse Labo : Expertise & Sécurité
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Programmes de formation adaptés à vos besoins pour une utilisation optimale et sécurisée de votre centrifugeuse de laboratoire.
+      </p>
+      <div class="flex gap-4">
+        <a href="/formation-utilisation-centrifugeuse/demande/?utm_source=formation" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Demander un Devis Formation
+          <span class="block text-sm opacity-90">Programme personnalisé</span>
+        </a>
+        <a href="/guide/protocoles-centrifugation/?utm_source=formation" class="btn-secondary">
+          Voir les Protocoles
+          <span class="block text-sm opacity-90">Guide complet</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Programmes de Formation -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Nos Programmes de Formation</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        {formationPrograms.map(program => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-2">{program.title}</h3>
+            <div class="flex items-center text-gray-600 mb-4">
+              <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {program.duration}
+            </div>
+            <div class="mb-4">
+              <p class="text-sm text-gray-500">Public : {program.audience}</p>
+            </div>
+            <ul class="space-y-2 mb-6">
+              {program.modules.map(module => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{module}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-auto">
+              <p class="text-lg font-semibold text-blue-600 mb-4">{program.price}</p>
+              <a href={`/formation-utilisation-centrifugeuse/demande/?type=${program.title.toLowerCase()}&utm_source=formation_program`} 
+                 class="btn-primary w-full justify-center">
+                Réserver cette Formation
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Bénéfices -->
+    <section class="mb-12 bg-gray-50 rounded-lg p-8">
+      <h2 class="text-3xl font-semibold mb-8">Bénéfices de la Formation</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {benefits.map(benefit => (
+          <div class="bg-white rounded-lg p-6">
+            <div class="text-blue-600 mb-4">
+              {benefit.icon === 'shield' && (
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+              {benefit.icon === 'clock' && (
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+              {benefit.icon === 'chart' && (
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+              {benefit.icon === 'wrench' && (
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                  <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="text-lg font-semibold mb-2">{benefit.title}</h3>
+            <p class="text-gray-600">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Modules de Formation -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Contenu de la Formation</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {trainingModules.map(module => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{module.title}</h3>
+            <ul class="space-y-3">
+              {module.topics.map(topic => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{topic}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Témoignages</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {testimonials.map(testimonial => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <svg class="w-8 h-8 text-blue-600 mb-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <p class="text-gray-600 mb-4 italic">{testimonial.quote}</p>
+            <div>
+              <p class="font-semibold">{testimonial.author}</p>
+              <p class="text-sm text-gray-500">{testimonial.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Related Content -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-6">Ressources Complémentaires</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {relatedContent.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.title}</h3>
+            <ul class="space-y-3">
+              {section.links.map(link => (
+                <li>
+                  <a href={link.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

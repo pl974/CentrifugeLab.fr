@@ -1,0 +1,315 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const avantagesLocation = [
+  {
+    titre: 'Flexibilité Maximale',
+    description: 'Durées adaptables à vos besoins',
+    points: [
+      'Location courte durée (1-3 mois)',
+      'Location moyenne durée (3-12 mois)',
+      'Option d\'achat possible'
+    ]
+  },
+  {
+    titre: 'Service Complet',
+    description: 'Tout inclus dans votre location',
+    points: [
+      'Installation et mise en service',
+      'Formation utilisateur',
+      'Maintenance préventive',
+      'Support technique 24/7'
+    ]
+  },
+  {
+    titre: 'Garantie Performance',
+    description: 'Équipement toujours optimal',
+    points: [
+      'Matériel récent et certifié',
+      'Remplacement si panne',
+      'Mises à jour techniques',
+      'Conformité garantie'
+    ]
+  }
+];
+
+const equipementsDisponibles = [
+  {
+    type: 'Centrifugeuses de Paillasse',
+    specs: {
+      volume: '0.2-750 mL',
+      vitesse: 'jusqu\'à 15,000 RPM',
+      temperature: 'ambiante'
+    },
+    applications: [
+      'Séparation cellulaire',
+      'Analyses cliniques',
+      'Préparation d\'échantillons'
+    ],
+    url: '/centrifugeuses/paillasse/'
+  },
+  {
+    type: 'Centrifugeuses Réfrigérées',
+    specs: {
+      volume: '0.2-500 mL',
+      vitesse: 'jusqu\'à 30,000 RPM',
+      temperature: '-20°C à +40°C'
+    },
+    applications: [
+      'Biologie moléculaire',
+      'Recherche',
+      'Industrie pharmaceutique'
+    ],
+    url: '/centrifugeuses/refrigerees/'
+  },
+  {
+    type: 'Ultracentrifugeuses',
+    specs: {
+      volume: '0.2-30 mL',
+      vitesse: 'jusqu\'à 150,000 RPM',
+      temperature: '0°C à +40°C'
+    },
+    applications: [
+      'Purification de virus',
+      'Isolation de protéines',
+      'Études subcellulaires'
+    ],
+    url: '/centrifugeuses/ultra/'
+  }
+];
+
+const ressourcesUtiles = [
+  {
+    titre: 'Guides Techniques',
+    liens: [
+      { texte: 'Guide d\'Achat', url: '/guide-achat-centrifugeuse-laboratoire/' },
+      { texte: 'Calcul Force G', url: '/guide/calcul-force-centrifuge/' },
+      { texte: 'Protocoles', url: '/guide/protocoles-centrifugation/' }
+    ]
+  },
+  {
+    titre: 'Services Associés',
+    liens: [
+      { texte: 'Formation Utilisateur', url: '/formation-utilisation-centrifugeuse/' },
+      { texte: 'Maintenance', url: '/maintenance/entretien-centrifugeuse-laboratoire/' },
+      { texte: 'Devis d\'Achat', url: '/devis-centrifugeuse/' }
+    ]
+  }
+];
+---
+
+<Layout title="Location Centrifugeuse Laboratoire - Solution Flexible">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Location de Centrifugeuses de Laboratoire",
+      "description": "Service de location flexible de centrifugeuses pour laboratoire. Installation, formation et maintenance incluses.",
+      "provider": {
+        "@type": "Organization",
+        "name": "CentrifugeLab"
+      },
+      "areaServed": "France",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Centrifugeuses en Location",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Centrifugeuse de Paillasse"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Centrifugeuse Réfrigérée"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Ultracentrifugeuse"
+            }
+          }
+        ]
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Location Centrifugeuse Labo : Solution Flexible et Service Premium
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Accédez à nos centrifugeuses de laboratoire dernière génération avec un service tout inclus :
+        installation, formation et maintenance. Solution idéale pour vos besoins temporaires ou tests.
+      </p>
+      <div class="flex gap-4">
+        <a href="/location-centrifugeuse-laboratoire/demande/?utm_source=location" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Demander un Devis Location
+          <span class="block text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+        <a href="/guide-achat-centrifugeuse-laboratoire/?utm_source=location" class="btn-secondary">
+          Guide Comparatif
+          <span class="block text-sm opacity-90">Aide au choix</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Avantages Location -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Pourquoi Louer votre Centrifugeuse ?</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {avantagesLocation.map(avantage => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{avantage.titre}</h3>
+            <p class="text-gray-600 mb-4">{avantage.description}</p>
+            <ul class="space-y-2">
+              {avantage.points.map(point => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Équipements Disponibles -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Nos Centrifugeuses en Location</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        {equipementsDisponibles.map(equipement => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{equipement.type}</h3>
+            
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Spécifications :</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li>Volume : {equipement.specs.volume}</li>
+                <li>Vitesse : {equipement.specs.vitesse}</li>
+                <li>Température : {equipement.specs.temperature}</li>
+              </ul>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Applications :</h4>
+              <ul class="list-disc list-inside text-gray-600">
+                {equipement.applications.map(app => (
+                  <li>{app}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <a href={equipement.url} class="text-blue-600 hover:text-blue-800">
+                Voir les détails →
+              </a>
+              <a href={`/location-centrifugeuse-laboratoire/demande/?type=${equipement.type}&utm_source=location_equipment`} 
+                 class="btn-primary">
+                Louer
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Process de Location -->
+    <section class="mb-12 bg-gray-50 rounded-lg p-8">
+      <h2 class="text-3xl font-semibold mb-8">Process de Location Simplifié</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600">1</span>
+          </div>
+          <h3 class="font-semibold mb-2">Demande de Devis</h3>
+          <p class="text-gray-600">Formulaire simple et rapide</p>
+        </div>
+        <div class="text-center">
+          <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600">2</span>
+          </div>
+          <h3 class="font-semibold mb-2">Validation</h3>
+          <p class="text-gray-600">Proposition sous 24h</p>
+        </div>
+        <div class="text-center">
+          <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600">3</span>
+          </div>
+          <h3 class="font-semibold mb-2">Installation</h3>
+          <p class="text-gray-600">Mise en service et formation</p>
+        </div>
+        <div class="text-center">
+          <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600">4</span>
+          </div>
+          <h3 class="font-semibold mb-2">Utilisation</h3>
+          <p class="text-gray-600">Support technique 24/7</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ressources Utiles -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Ressources Complémentaires</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {ressourcesUtiles.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.titre}</h3>
+            <ul class="space-y-3">
+              {section.liens.map(lien => (
+                <li>
+                  <a href={lien.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {lien.texte}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <div class="bg-blue-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Besoin d'une Solution Temporaire ?</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Nos experts sont là pour vous conseiller la meilleure solution de location
+      </p>
+      <a href="/location-centrifugeuse-laboratoire/demande/?utm_source=location_bottom" class="btn-primary inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Contacter un Expert Location
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

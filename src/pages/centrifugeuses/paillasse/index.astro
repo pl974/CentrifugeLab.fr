@@ -1,0 +1,374 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const caracteristiques = [
+  {
+    titre: 'Performance',
+    points: [
+      'Vitesse : jusqu\'à 15,000 RPM',
+      'Volume : 0.2-750 mL',
+      'Force RCF : jusqu\'à 21,380 × g',
+      'Accélération rapide'
+    ],
+    icon: 'speed'
+  },
+  {
+    titre: 'Polyvalence',
+    points: [
+      'Rotors interchangeables',
+      'Adaptateurs multiples',
+      'Programmes personnalisables',
+      'Applications variées'
+    ],
+    icon: 'flexibility'
+  },
+  {
+    titre: 'Sécurité',
+    points: [
+      'Verrouillage automatique',
+      'Détection de déséquilibre',
+      'Protection anti-surchauffe',
+      'Système anti-aérosols'
+    ],
+    icon: 'shield'
+  }
+];
+
+const applications = [
+  {
+    domaine: 'Biologie Médicale',
+    usages: [
+      'Séparation de sang',
+      'Analyses urinaires',
+      'Tests cliniques',
+      'Microbiologie'
+    ],
+    url: '/applications/centrifugeuse-biologie-medicale/'
+  },
+  {
+    domaine: 'Recherche',
+    usages: [
+      'Culture cellulaire',
+      'Isolation de protéines',
+      'Purification d\'ADN/ARN',
+      'Études biochimiques'
+    ],
+    url: '/applications/centrifugeuse-recherche-scientifique/'
+  },
+  {
+    domaine: 'Industrie',
+    usages: [
+      'Contrôle qualité',
+      'Tests de production',
+      'Analyses de routine',
+      'Validation process'
+    ],
+    url: '/applications/centrifugeuse-industrie-pharmaceutique/'
+  }
+];
+
+const modeles = [
+  {
+    nom: 'Série Standard',
+    description: 'Solution polyvalente pour applications courantes',
+    specs: {
+      vitesse: 'jusqu\'à 6,000 RPM',
+      volume: '0.2-250 mL',
+      programmes: '10 programmes'
+    },
+    avantages: [
+      'Excellent rapport qualité/prix',
+      'Utilisation intuitive',
+      'Maintenance facile',
+      'Compact et silencieux'
+    ],
+    prix: 'À partir de 2,990€ HT'
+  },
+  {
+    nom: 'Série Pro',
+    description: 'Performance avancée pour laboratoires exigeants',
+    specs: {
+      vitesse: 'jusqu\'à 15,000 RPM',
+      volume: '0.2-750 mL',
+      programmes: '99 programmes'
+    },
+    avantages: [
+      'Performance maximale',
+      'Interface avancée',
+      'Traçabilité complète',
+      'Rotors haute capacité'
+    ],
+    prix: 'À partir de 4,990€ HT'
+  }
+];
+
+const services = [
+  {
+    titre: 'Installation & Formation',
+    description: 'Service complet de mise en service',
+    points: [
+      'Installation sur site',
+      'Formation utilisateur',
+      'Documentation complète',
+      'Support technique'
+    ],
+    url: '/formation-utilisation-centrifugeuse/'
+  },
+  {
+    titre: 'Maintenance Préventive',
+    description: 'Programme d\'entretien optimisé',
+    points: [
+      'Visites programmées',
+      'Pièces d\'origine',
+      'Calibration certifiée',
+      'Rapports détaillés'
+    ],
+    url: '/maintenance/entretien-centrifugeuse-laboratoire/'
+  },
+  {
+    titre: 'Location Flexible',
+    description: 'Solutions temporaires adaptées',
+    points: [
+      'Durées flexibles',
+      'Installation incluse',
+      'Maintenance comprise',
+      'Support 24/7'
+    ],
+    url: '/location-centrifugeuse-laboratoire/'
+  }
+];
+---
+
+<Layout title="Centrifugeuse de Paillasse - Solution Polyvalente pour Laboratoire">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Centrifugeuse de Paillasse pour Laboratoire",
+      "description": "Centrifugeuses de paillasse polyvalentes pour laboratoire. Performance jusqu'à 15,000 RPM, volume 0.2-750 mL. Installation et formation incluses.",
+      "brand": {
+        "@type": "Brand",
+        "name": "CentrifugeLab"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "2990",
+        "highPrice": "4990",
+        "offerCount": "2"
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Centrifugeuse de Paillasse : Solution Polyvalente pour Laboratoire
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Découvrez nos centrifugeuses de paillasse haute performance pour toutes vos applications.
+        Installation, formation et support technique inclus pour une utilisation optimale.
+      </p>
+      <div class="flex gap-4">
+        <a href="/devis-centrifugeuse/?type=paillasse&utm_source=paillasse" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Devis Personnalisé
+          <span class="block text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+        <a href="/guide-achat-centrifugeuse-laboratoire/?utm_source=paillasse" class="btn-secondary">
+          Guide d'Achat
+          <span class="block text-sm opacity-90">Conseils experts</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Caractéristiques -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Caractéristiques Principales</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {caracteristiques.map(carac => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="mb-4">
+              {carac.icon === 'speed' && (
+                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 9V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              )}
+              {carac.icon === 'flexibility' && (
+                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+              {carac.icon === 'shield' && (
+                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="text-xl font-semibold mb-4">{carac.titre}</h3>
+            <ul class="space-y-2">
+              {carac.points.map(point => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Applications par Domaine</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {applications.map(app => (
+          <a href={app.url} class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
+            <h3 class="text-xl font-semibold mb-4">{app.domaine}</h3>
+            <ul class="space-y-2 mb-6">
+              {app.usages.map(usage => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{usage}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="text-blue-600 flex items-center">
+              En savoir plus
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Modèles -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Nos Modèles</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {modeles.map(modele => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-2">{modele.nom}</h3>
+            <p class="text-gray-600 mb-4">{modele.description}</p>
+            
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Spécifications :</h4>
+              <ul class="space-y-2">
+                {Object.entries(modele.specs).map(([key, value]) => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{key}: {value}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Avantages :</h4>
+              <ul class="space-y-2">
+                {modele.avantages.map(avantage => (
+                  <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">→</span>
+                    <span>{avantage}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="flex items-center justify-between mt-6">
+              <span class="text-lg font-semibold text-blue-600">{modele.prix}</span>
+              <a href={`/devis-centrifugeuse/?type=paillasse&modele=${modele.nom.toLowerCase()}&utm_source=paillasse_modeles`} 
+                 class="btn-primary">
+                Demander un Devis
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Services Associés</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {services.map(service => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{service.titre}</h3>
+            <p class="text-gray-600 mb-4">{service.description}</p>
+            <ul class="space-y-2 mb-6">
+              {service.points.map(point => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={service.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+              En savoir plus
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Calculateur -->
+    <section class="mb-12 bg-gray-50 rounded-lg p-8">
+      <h2 class="text-2xl font-semibold mb-4">Calculateur de Force G</h2>
+      <p class="text-gray-600 mb-6">
+        Optimisez vos protocoles en calculant précisément la force centrifuge relative (RCF)
+      </p>
+      <div class="flex justify-center">
+        <a href="/guide/calcul-force-centrifuge/" class="btn-primary">
+          Accéder au Calculateur
+          <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <div class="bg-blue-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Besoin d'un Conseil Personnalisé ?</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Nos experts sont là pour vous guider vers la centrifugeuse de paillasse idéale pour vos besoins
+      </p>
+      <a href="/devis-centrifugeuse/?type=paillasse&utm_source=paillasse_bottom" class="btn-primary inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Contacter un Expert
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

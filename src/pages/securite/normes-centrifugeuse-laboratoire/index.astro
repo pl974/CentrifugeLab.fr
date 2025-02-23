@@ -1,0 +1,286 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const normesSecurite = [
+  {
+    categorie: 'Normes Générales',
+    standards: [
+      {
+        code: 'EN 61010-1',
+        titre: 'Sécurité électrique',
+        description: 'Exigences générales pour les équipements de laboratoire'
+      },
+      {
+        code: 'EN 61010-2-020',
+        titre: 'Centrifugeuses de laboratoire',
+        description: 'Exigences particulières pour les centrifugeuses'
+      },
+      {
+        code: 'ISO 9001',
+        titre: 'Système qualité',
+        description: 'Management de la qualité en laboratoire'
+      }
+    ]
+  },
+  {
+    categorie: 'Sécurité Opérationnelle',
+    standards: [
+      {
+        code: 'ISO 15189',
+        titre: 'Laboratoires médicaux',
+        description: 'Exigences concernant la qualité et la compétence'
+      },
+      {
+        code: 'GLP',
+        titre: 'Bonnes Pratiques de Laboratoire',
+        description: 'Principes de qualité pour les essais non cliniques'
+      }
+    ]
+  }
+];
+
+const mesuresSecurite = [
+  {
+    titre: 'Sécurité Mécanique',
+    points: [
+      'Verrouillage automatique du couvercle',
+      'Détection de déséquilibre',
+      'Protection contre la survitesse',
+      'Système anti-vibrations'
+    ],
+    importance: 'Prévention des accidents mécaniques'
+  },
+  {
+    titre: 'Sécurité Biologique',
+    points: [
+      'Joints d\'étanchéité certifiés',
+      'Rotors bio-confinement',
+      'Filtration HEPA',
+      'Décontamination facilitée'
+    ],
+    importance: 'Protection contre les aérosols biologiques'
+  },
+  {
+    titre: 'Sécurité Électrique',
+    points: [
+      'Isolation renforcée',
+      'Protection contre les surcharges',
+      'Mise à la terre automatique',
+      'Arrêt d\'urgence'
+    ],
+    importance: 'Prévention des risques électriques'
+  }
+];
+
+const proceduresSecurite = [
+  {
+    phase: 'Avant Utilisation',
+    actions: [
+      'Inspection visuelle du rotor',
+      'Vérification des joints d\'étanchéité',
+      'Contrôle de l\'équilibrage',
+      'Test du système de verrouillage'
+    ]
+  },
+  {
+    phase: 'Pendant l\'Utilisation',
+    actions: [
+      'Surveillance des vibrations',
+      'Respect des vitesses maximales',
+      'Maintien de la zone de sécurité',
+      'Port des EPI appropriés'
+    ]
+  },
+  {
+    phase: 'Après Utilisation',
+    actions: [
+      'Nettoyage systématique',
+      'Désinfection si nécessaire',
+      'Documentation des paramètres',
+      'Signalement des anomalies'
+    ]
+  }
+];
+
+const ressourcesUtiles = [
+  {
+    titre: 'Documentation Technique',
+    liens: [
+      { texte: 'Guide Maintenance', url: '/maintenance/entretien-centrifugeuse-laboratoire/' },
+      { texte: 'Protocoles', url: '/guide/protocoles-centrifugation/' },
+      { texte: 'Formation', url: '/formation-utilisation-centrifugeuse/' }
+    ]
+  },
+  {
+    titre: 'Services Associés',
+    liens: [
+      { texte: 'Audit Sécurité', url: '/devis-centrifugeuse/?service=audit' },
+      { texte: 'Formation Sécurité', url: '/formation-utilisation-centrifugeuse/' },
+      { texte: 'Maintenance Préventive', url: '/maintenance/entretien-centrifugeuse-laboratoire/' }
+    ]
+  }
+];
+---
+
+<Layout title="Normes et Sécurité Centrifugeuse Laboratoire - Guide Complet">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "name": "Normes et Sécurité des Centrifugeuses de Laboratoire",
+      "description": "Guide complet des normes de sécurité et bonnes pratiques pour l'utilisation des centrifugeuses en laboratoire.",
+      "about": {
+        "@type": "Thing",
+        "name": "Sécurité en Laboratoire"
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Normes et Sécurité Centrifugeuse Labo : Guide Expert
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Guide complet des normes de sécurité et bonnes pratiques pour une utilisation sûre et conforme 
+        de votre centrifugeuse de laboratoire.
+      </p>
+      <div class="flex gap-4">
+        <a href="/formation-utilisation-centrifugeuse/?utm_source=securite" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M12 14l9-5-9-5-9 5 9 5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 14l9-5-9-5-9 5 9 5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 21l9-5-9-5-9 5 9 5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Formation Sécurité
+          <span class="block text-sm opacity-90">Programme certifiant</span>
+        </a>
+        <a href="/maintenance/entretien-centrifugeuse-laboratoire/?utm_source=securite" class="btn-secondary">
+          Guide Maintenance
+          <span class="block text-sm opacity-90">Prévention des risques</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Normes et Standards -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Normes et Standards Applicables</h2>
+      <div class="space-y-8">
+        {normesSecurite.map(categorie => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-6">{categorie.categorie}</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              {categorie.standards.map(standard => (
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <div class="flex items-center mb-2">
+                    <span class="text-blue-600 font-mono font-medium">{standard.code}</span>
+                    <span class="mx-2">•</span>
+                    <span class="font-medium">{standard.titre}</span>
+                  </div>
+                  <p class="text-gray-600">{standard.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Mesures de Sécurité -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Mesures de Sécurité Essentielles</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {mesuresSecurite.map(mesure => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{mesure.titre}</h3>
+            <ul class="space-y-3 mb-6">
+              {mesure.points.map(point => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-auto">
+              <div class="bg-blue-50 p-3 rounded-lg text-blue-800">
+                <strong>Impact :</strong> {mesure.importance}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Procédures de Sécurité -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Procédures de Sécurité</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {proceduresSecurite.map(procedure => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{procedure.phase}</h3>
+            <ul class="space-y-3">
+              {procedure.actions.map(action => (
+                <li class="flex items-start">
+                  <span class="text-blue-600 mr-2">→</span>
+                  <span>{action}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Ressources Utiles -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Ressources Complémentaires</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {ressourcesUtiles.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.titre}</h3>
+            <ul class="space-y-3">
+              {section.liens.map(lien => (
+                <li>
+                  <a href={lien.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {lien.texte}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <div class="bg-blue-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Besoin d'un Audit Sécurité ?</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Nos experts peuvent évaluer la conformité de votre installation aux normes en vigueur
+      </p>
+      <a href="/devis-centrifugeuse/?service=audit&utm_source=securite_bottom" class="btn-primary inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Demander un Audit
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

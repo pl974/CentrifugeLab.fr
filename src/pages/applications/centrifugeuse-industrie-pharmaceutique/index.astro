@@ -1,0 +1,338 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const applications = [
+  {
+    titre: 'Production de Vaccins',
+    description: 'Purification et concentration de composants vaccinaux',
+    parametres: {
+      vitesse: '20,000-50,000 RPM',
+      temps: '2-4 heures',
+      temperature: '4°C'
+    },
+    protocoles: [
+      'Isolation de virus',
+      'Purification d\'antigènes',
+      'Concentration de protéines',
+      'Clarification de suspensions'
+    ]
+  },
+  {
+    titre: 'Développement de Médicaments',
+    description: 'Séparation et analyse de principes actifs',
+    parametres: {
+      vitesse: '15,000-30,000 RPM',
+      temps: '30-60 minutes',
+      temperature: '15-25°C'
+    },
+    protocoles: [
+      'Cristallisation de molécules',
+      'Études de stabilité',
+      'Tests de dissolution',
+      'Analyse de formulations'
+    ]
+  },
+  {
+    titre: 'Production GMP',
+    description: 'Processus conformes aux normes pharmaceutiques',
+    parametres: {
+      vitesse: '5,000-15,000 RPM',
+      temps: '15-45 minutes',
+      temperature: 'Variable selon process'
+    },
+    protocoles: [
+      'Séparation de lots',
+      'Contrôle qualité',
+      'Validation de process',
+      'Documentation GMP'
+    ]
+  }
+];
+
+const equipementsRecommandes = [
+  {
+    type: 'Centrifugeuse Industrielle GMP',
+    caracteristiques: [
+      'Volume : jusqu\'à 100L',
+      'Vitesse : jusqu\'à 20,000 RPM',
+      'Documentation complète',
+      'Traçabilité intégrée'
+    ],
+    avantages: [
+      'Conformité GMP',
+      'Validation simplifiée',
+      'Production à grande échelle',
+      'Nettoyage CIP/SIP'
+    ],
+    url: '/centrifugeuses/industrielle/'
+  },
+  {
+    type: 'Ultracentrifugeuse Pharmaceutique',
+    caracteristiques: [
+      'Vitesse : jusqu\'à 100,000 RPM',
+      'Contrôle précis température',
+      'Rotors qualifiés',
+      'Interface 21 CFR Part 11'
+    ],
+    avantages: [
+      'Haute résolution',
+      'Reproductibilité garantie',
+      'Audit trail complet',
+      'Sécurité maximale'
+    ],
+    url: '/centrifugeuses/ultra/'
+  }
+];
+
+const servicesAssocies = [
+  {
+    titre: 'Qualification IQ/OQ/PQ',
+    description: 'Validation complète selon normes GMP',
+    points: [
+      'Documentation exhaustive',
+      'Tests de performance',
+      'Rapports détaillés',
+      'Certification officielle'
+    ],
+    url: '/formation-utilisation-centrifugeuse/'
+  },
+  {
+    titre: 'Maintenance Qualifiée',
+    description: 'Services conformes aux exigences pharmaceutiques',
+    points: [
+      'Techniciens certifiés',
+      'Pièces traçables',
+      'Calibration accréditée',
+      'Registres détaillés'
+    ],
+    url: '/maintenance/entretien-centrifugeuse-laboratoire/'
+  },
+  {
+    titre: 'Support Réglementaire',
+    description: 'Assistance pour conformité et audits',
+    points: [
+      'Conseil normatif',
+      'Préparation audits',
+      'Gestion documentation',
+      'Veille réglementaire'
+    ],
+    url: '/securite/normes-centrifugeuse-laboratoire/'
+  }
+];
+
+const ressourcesUtiles = [
+  {
+    titre: 'Documentation Technique',
+    liens: [
+      { texte: 'Guide GMP', url: '/guide-achat-centrifugeuse-laboratoire/' },
+      { texte: 'Normes & Sécurité', url: '/securite/normes-centrifugeuse-laboratoire/' },
+      { texte: 'Protocoles Validés', url: '/guide/protocoles-centrifugation/' }
+    ]
+  },
+  {
+    titre: 'Services Spécialisés',
+    liens: [
+      { texte: 'Qualification', url: '/formation-utilisation-centrifugeuse/' },
+      { texte: 'Maintenance GMP', url: '/maintenance/entretien-centrifugeuse-laboratoire/' },
+      { texte: 'Location Qualifiée', url: '/location-centrifugeuse-laboratoire/' }
+    ]
+  }
+];
+---
+
+<Layout title="Centrifugeuse Industrie Pharmaceutique - Solutions GMP">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "name": "Applications des Centrifugeuses en Industrie Pharmaceutique",
+      "description": "Guide expert des applications et solutions de centrifugation pour l'industrie pharmaceutique. Équipements conformes GMP et services de qualification.",
+      "about": {
+        "@type": "Thing",
+        "name": "Centrifugation Pharmaceutique"
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Centrifugeuse Labo pour Industrie Pharmaceutique : Solutions GMP
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Solutions de centrifugation conformes aux normes GMP pour l'industrie pharmaceutique.
+        Équipements qualifiés et services de validation pour production et R&D.
+      </p>
+      <div class="flex gap-4">
+        <a href="/devis-centrifugeuse/?application=pharma&utm_source=pharma" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Devis Personnalisé
+          <span class="block text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+        <a href="/guide-achat-centrifugeuse-laboratoire/?utm_source=pharma" class="btn-secondary">
+          Guide GMP
+          <span class="block text-sm opacity-90">Conseils experts</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Applications -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Applications Pharmaceutiques</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        {applications.map(app => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{app.titre}</h3>
+            <p class="text-gray-600 mb-4">{app.description}</p>
+            
+            <div class="mb-4">
+              <h4 class="font-medium mb-2">Paramètres Validés :</h4>
+              <ul class="text-gray-600">
+                <li>Vitesse : {app.parametres.vitesse}</li>
+                <li>Temps : {app.parametres.temps}</li>
+                <li>Température : {app.parametres.temperature}</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-medium mb-2">Protocoles GMP :</h4>
+              <ul class="space-y-1">
+                {app.protocoles.map(protocole => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{protocole}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Équipements Recommandés -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Équipements Qualifiés GMP</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {equipementsRecommandes.map(equip => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{equip.type}</h3>
+            
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Caractéristiques :</h4>
+              <ul class="space-y-2">
+                {equip.caracteristiques.map(carac => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{carac}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Avantages :</h4>
+              <ul class="space-y-2">
+                {equip.avantages.map(avantage => (
+                  <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">→</span>
+                    <span>{avantage}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a href={equip.url} class="btn-primary w-full justify-center">
+              Découvrir
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services Associés -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Services GMP</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {servicesAssocies.map(service => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{service.titre}</h3>
+            <p class="text-gray-600 mb-4">{service.description}</p>
+            <ul class="space-y-2 mb-6">
+              {service.points.map(point => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={service.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+              En savoir plus
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Ressources Utiles -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Documentation GMP</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {ressourcesUtiles.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.titre}</h3>
+            <ul class="space-y-3">
+              {section.liens.map(lien => (
+                <li>
+                  <a href={lien.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {lien.texte}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <div class="bg-blue-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Besoin d'une Solution GMP ?</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Nos experts sont là pour vous accompagner dans la qualification et la validation de vos équipements
+      </p>
+      <a href="/devis-centrifugeuse/?application=pharma&utm_source=pharma_bottom" class="btn-primary inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Contacter un Expert GMP
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

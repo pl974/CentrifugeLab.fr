@@ -1,0 +1,236 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+// Définition des formules de calcul avec leurs variables et descriptions
+// Définition des formules de calcul avec leurs variables et descriptions
+const formules = [
+  {
+    title: 'Force Centrifuge Relative (RCF)',
+    formule: 'RCF = 1.118 × 10⁻⁵ × r × N²',
+    variables: [
+      { nom: 'r', description: 'Rayon de rotation (cm)' },
+      { nom: 'N', description: 'Vitesse de rotation (RPM)' }
+    ]
+  },
+  {
+    title: 'Conversion RPM en RCF',
+    formule: 'RCF = (RPM/1000)² × r × 11.18',
+    variables: [
+      { nom: 'RPM', description: 'Vitesse en tours par minute' },
+      { nom: 'r', description: 'Rayon en centimètres' }
+    ]
+  }
+];
+
+// Applications courantes avec leurs paramètres spécifiques
+const applications = [
+  {
+    type: 'Séparation Cellulaire',
+    force: '400-800 × g',
+    temps: '5-10 minutes',
+    exemples: ['Isolation de lymphocytes', 'Séparation de plasma']
+  },
+  {
+    type: 'Isolation d\'Organites',
+    force: '3,000-10,000 × g',
+    temps: '15-30 minutes',
+    exemples: ['Mitochondries', 'Lysosomes']
+  },
+  {
+    type: 'Ultracentrifugation',
+    force: '100,000-500,000 × g',
+    temps: '1-4 heures',
+    exemples: ['Séparation de protéines', 'Isolation de virus']
+  }
+];
+
+const relatedContent = [
+  {
+    title: 'Guides Pratiques',
+    links: [
+      { text: 'Protocoles de Centrifugation', url: '/guide/protocoles-centrifugation/' },
+      { text: 'Choix du Rotor', url: '/guide/choisir-rotor-centrifugeuse/' },
+      { text: 'Maintenance', url: '/maintenance/entretien-centrifugeuse-laboratoire/' }
+    ]
+  },
+  {
+    title: 'Solutions par Application',
+    links: [
+      { text: 'Centrifugeuses de Paillasse', url: '/centrifugeuses/paillasse/' },
+      { text: 'Ultracentrifugeuses', url: '/centrifugeuses/ultra/' },
+      { text: 'Centrifugeuses Réfrigérées', url: '/centrifugeuses/refrigerees/' }
+    ]
+  }
+];
+---
+
+<Layout title="Calcul de la Force Centrifuge - Guide Expert">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculateur de Force Centrifuge",
+      "description": "Outil de calcul professionnel pour déterminer la force centrifuge relative (RCF) en fonction de la vitesse de rotation et du rayon.",
+      "applicationCategory": "CalculatorApplication",
+      "operatingSystem": "Web"
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Calculateur de Force Centrifuge pour Centrifugeuse Labo
+      </h1>
+      <p class="text-xl text-gray-600 mb-4">
+        Comprendre et calculer la force centrifuge pour optimiser vos protocoles de centrifugation.
+      </p>
+      <div class="flex gap-4 mb-8">
+        <a href="/devis-centrifugeuse/?utm_source=calculator" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Devis Personnalisé
+          <span class="block text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+        <a href="/guide-achat-centrifugeuse-laboratoire/?utm_source=calculator" class="btn-secondary">
+          Guide d'Achat Complet
+          <span class="block text-sm opacity-90">Conseils d'experts</span>
+        </a>
+      </div>
+      
+      <!-- Calculateur RCF -->
+      <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <h2 class="text-2xl font-semibold mb-6">Calculateur de Force Centrifuge Relative (RCF)</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="rpm" class="block text-sm font-medium text-gray-700 mb-1">
+              Vitesse de Rotation (RPM)
+            </label>
+            <input
+              type="number"
+              id="rpm"
+              min="0"
+              step="100"
+              class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Ex: 3000"
+            />
+          </div>
+          <div>
+            <label for="radius" class="block text-sm font-medium text-gray-700 mb-1">
+              Rayon de Rotation (cm)
+            </label>
+            <input
+              type="number"
+              id="radius"
+              min="0"
+              step="0.1"
+              class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Ex: 10"
+            />
+          </div>
+        </div>
+        <div id="rcfResult" class="mt-4 p-4 bg-blue-50 rounded-lg text-blue-900 font-medium">
+          Force Centrifuge Relative (RCF): <span>0</span> × g
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="bg-blue-50 p-6 rounded-lg mb-8">
+        <h2 class="text-lg font-semibold mb-4">Ressources Utiles :</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          <a href="/guide/protocoles-centrifugation/?utm_source=calculator" 
+             class="flex items-center p-3 bg-white rounded hover:shadow-md transition-shadow">
+            <span class="text-blue-600 mr-2">→</span>
+            Protocoles Optimisés
+          </a>
+          <a href="/guide/choisir-rotor-centrifugeuse/?utm_source=calculator" 
+             class="flex items-center p-3 bg-white rounded hover:shadow-md transition-shadow">
+            <span class="text-blue-600 mr-2">→</span>
+            Guide Choix du Rotor
+          </a>
+          <a href="/devis-centrifugeuse/?utm_source=calculator_resources" 
+             class="flex items-center p-3 bg-white rounded hover:shadow-md transition-shadow">
+            <span class="text-blue-600 mr-2">→</span>
+            Devis Express
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formules -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6">Formules Essentielles</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {formules.map(formule => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{formule.title}</h3>
+            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+              <code class="text-lg font-mono">{formule.formule}</code>
+            </div>
+            <div>
+              <h4 class="font-medium mb-2">Variables:</h4>
+              <ul class="space-y-2">
+                {formule.variables.map(variable => (
+                  <li>
+                    <span class="font-mono text-blue-600">{variable.nom}</span>: {variable.description}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6">Applications Courantes</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {applications.map(app => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{app.type}</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li><strong>Force:</strong> {app.force}</li>
+              <li><strong>Temps:</strong> {app.temps}</li>
+              <li>
+                <strong>Exemples:</strong>
+                <ul class="list-disc list-inside ml-4 mt-2">
+                  {app.exemples.map(exemple => (
+                    <li>{exemple}</li>
+                  ))}
+                </ul>
+              </li>
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Related Content -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-6">Ressources Complémentaires</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {relatedContent.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.title}</h3>
+            <ul class="space-y-3">
+              {section.links.map(link => (
+                <li>
+                  <a href={link.url} class="text-blue-600 hover:text-blue-800">
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  code {
+    @apply bg-gray-50 px-2 py-1 rounded;
+  }

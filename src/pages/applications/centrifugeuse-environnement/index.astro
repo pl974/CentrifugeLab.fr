@@ -1,0 +1,338 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const applications = [
+  {
+    titre: 'Analyse des Sols',
+    description: 'Séparation et caractérisation des composants du sol',
+    parametres: {
+      vitesse: '3,000-8,000 RPM',
+      temps: '15-30 minutes',
+      temperature: '20-25°C'
+    },
+    protocoles: [
+      'Séparation granulométrique',
+      'Extraction de polluants',
+      'Analyse de matière organique',
+      'Fractionnement des minéraux'
+    ]
+  },
+  {
+    titre: 'Traitement des Eaux',
+    description: 'Analyse et purification d\'échantillons aqueux',
+    parametres: {
+      vitesse: '10,000-15,000 RPM',
+      temps: '20-45 minutes',
+      temperature: '4-20°C'
+    },
+    protocoles: [
+      'Séparation des sédiments',
+      'Concentration de micropolluants',
+      'Isolation de microorganismes',
+      'Clarification d\'échantillons'
+    ]
+  },
+  {
+    titre: 'Analyse Atmosphérique',
+    description: 'Caractérisation des particules en suspension',
+    parametres: {
+      vitesse: '20,000-40,000 RPM',
+      temps: '1-2 heures',
+      temperature: '15-20°C'
+    },
+    protocoles: [
+      'Fractionnement PM2.5/PM10',
+      'Collection de bioaérosols',
+      'Séparation de particules',
+      'Analyse de composition'
+    ]
+  }
+];
+
+const equipementsRecommandes = [
+  {
+    type: 'Centrifugeuse Environnementale',
+    caracteristiques: [
+      'Volume : jusqu\'à 500mL',
+      'Vitesse : jusqu\'à 15,000 RPM',
+      'Rotors spécialisés sols/eaux',
+      'Certification ISO 14001'
+    ],
+    avantages: [
+      'Polyvalence maximale',
+      'Haute reproductibilité',
+      'Maintenance simplifiée',
+      'Protocoles validés'
+    ],
+    url: '/centrifugeuses/paillasse/'
+  },
+  {
+    type: 'Ultracentrifugeuse Environnementale',
+    caracteristiques: [
+      'Volume : 0.2-30mL',
+      'Vitesse : jusqu\'à 100,000 RPM',
+      'Contrôle température précis',
+      'Rotors aérosols spécialisés'
+    ],
+    avantages: [
+      'Séparation ultra-fine',
+      'Analyse particulaire',
+      'Traçabilité complète',
+      'Conformité normes'
+    ],
+    url: '/centrifugeuses/ultra/'
+  }
+];
+
+const servicesAssocies = [
+  {
+    titre: 'Validation Méthodes',
+    description: 'Certification des protocoles environnementaux',
+    points: [
+      'Conformité ISO 17025',
+      'Validation méthodes',
+      'Documentation complète',
+      'Support accréditation'
+    ],
+    url: '/formation-utilisation-centrifugeuse/'
+  },
+  {
+    titre: 'Formation Spécialisée',
+    description: 'Formation aux analyses environnementales',
+    points: [
+      'Protocoles normalisés',
+      'Techniques d\'échantillonnage',
+      'Analyse des données',
+      'Bonnes pratiques'
+    ],
+    url: '/formation-utilisation-centrifugeuse/'
+  },
+  {
+    titre: 'Support Technique',
+    description: 'Assistance pour analyses environnementales',
+    points: [
+      'Optimisation protocoles',
+      'Maintenance préventive',
+      'Support analytique',
+      'Conseil normatif'
+    ],
+    url: '/maintenance/entretien-centrifugeuse-laboratoire/'
+  }
+];
+
+const ressourcesUtiles = [
+  {
+    titre: 'Guides Techniques',
+    liens: [
+      { texte: 'Guide d\'Achat', url: '/guide-achat-centrifugeuse-laboratoire/' },
+      { texte: 'Calcul Force G', url: '/guide/calcul-force-centrifuge/' },
+      { texte: 'Protocoles', url: '/guide/protocoles-centrifugation/' }
+    ]
+  },
+  {
+    titre: 'Services Complémentaires',
+    liens: [
+      { texte: 'Maintenance', url: '/maintenance/entretien-centrifugeuse-laboratoire/' },
+      { texte: 'Formation', url: '/formation-utilisation-centrifugeuse/' },
+      { texte: 'Location', url: '/location-centrifugeuse-laboratoire/' }
+    ]
+  }
+];
+---
+
+<Layout title="Centrifugeuse Environnement - Solutions d'Analyse">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "name": "Applications des Centrifugeuses en Analyse Environnementale",
+      "description": "Guide expert des applications et solutions de centrifugation pour l'analyse environnementale. Équipements spécialisés et services certifiés.",
+      "about": {
+        "@type": "Thing",
+        "name": "Centrifugation Environnementale"
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Centrifugeuse Labo pour Analyse Environnementale : Solutions Expertes
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Solutions de centrifugation spécialisées pour l'analyse environnementale.
+        Équipements certifiés et support expert pour vos analyses normalisées.
+      </p>
+      <div class="flex gap-4">
+        <a href="/devis-centrifugeuse/?application=environnement&utm_source=env" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Devis Personnalisé
+          <span class="block text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+        <a href="/guide-achat-centrifugeuse-laboratoire/?utm_source=env" class="btn-secondary">
+          Guide Technique
+          <span class="block text-sm opacity-90">Conseils experts</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Applications -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Applications Environnementales</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        {applications.map(app => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{app.titre}</h3>
+            <p class="text-gray-600 mb-4">{app.description}</p>
+            
+            <div class="mb-4">
+              <h4 class="font-medium mb-2">Paramètres Normalisés :</h4>
+              <ul class="text-gray-600">
+                <li>Vitesse : {app.parametres.vitesse}</li>
+                <li>Temps : {app.parametres.temps}</li>
+                <li>Température : {app.parametres.temperature}</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-medium mb-2">Protocoles :</h4>
+              <ul class="space-y-1">
+                {app.protocoles.map(protocole => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{protocole}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Équipements Recommandés -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Équipements Certifiés</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {equipementsRecommandes.map(equip => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">{equip.type}</h3>
+            
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Caractéristiques :</h4>
+              <ul class="space-y-2">
+                {equip.caracteristiques.map(carac => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{carac}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Avantages :</h4>
+              <ul class="space-y-2">
+                {equip.avantages.map(avantage => (
+                  <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">→</span>
+                    <span>{avantage}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a href={equip.url} class="btn-primary w-full justify-center">
+              Découvrir
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services Associés -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Services Certifiés</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {servicesAssocies.map(service => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{service.titre}</h3>
+            <p class="text-gray-600 mb-4">{service.description}</p>
+            <ul class="space-y-2 mb-6">
+              {service.points.map(point => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={service.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+              En savoir plus
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Ressources Utiles -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Ressources Techniques</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {ressourcesUtiles.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.titre}</h3>
+            <ul class="space-y-3">
+              {section.liens.map(lien => (
+                <li>
+                  <a href={lien.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {lien.texte}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <div class="bg-blue-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Besoin d'une Solution Environnementale ?</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Nos experts sont là pour vous conseiller sur les meilleures solutions pour vos analyses environnementales
+      </p>
+      <a href="/devis-centrifugeuse/?application=environnement&utm_source=env_bottom" class="btn-primary inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Contacter un Expert Environnement
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

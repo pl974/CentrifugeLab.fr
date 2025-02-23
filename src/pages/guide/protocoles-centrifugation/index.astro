@@ -1,0 +1,239 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const protocoles = [
+  {
+    title: 'Séparation de Plasma',
+    specs: {
+      vitesse: '3,000 RPM',
+      temps: '15 minutes',
+      temperature: '20°C'
+    },
+    etapes: [
+      'Prélèvement sanguin sur tube EDTA',
+      'Équilibrage des tubes',
+      'Centrifugation',
+      'Récupération du plasma'
+    ]
+  },
+  {
+    title: 'Isolation de Lymphocytes',
+    specs: {
+      vitesse: '1,500-2,000 RPM',
+      temps: '30 minutes',
+      temperature: '20°C'
+    },
+    etapes: [
+      'Préparation du gradient de densité',
+      'Dépôt du sang dilué',
+      'Centrifugation',
+      'Récupération de l\'anneau lymphocytaire'
+    ]
+  },
+  {
+    title: 'Purification d\'ADN',
+    specs: {
+      vitesse: '14,000 RPM',
+      temps: '10 minutes',
+      temperature: '4°C'
+    },
+    etapes: [
+      'Lyse cellulaire',
+      'Précipitation des protéines',
+      'Centrifugation',
+      'Récupération du surnageant'
+    ]
+  }
+];
+
+const relatedContent = [
+  {
+    title: 'Guides Techniques',
+    links: [
+      { text: 'Calcul de la Force G', url: '/guide/calcul-force-centrifuge/' },
+      { text: 'Choix du Rotor', url: '/guide/choisir-rotor-centrifugeuse/' },
+      { text: 'Maintenance Préventive', url: '/maintenance/entretien-centrifugeuse-laboratoire/' }
+    ]
+  },
+  {
+    title: 'Applications Spécifiques',
+    links: [
+      { text: 'Biologie Médicale', url: '/applications/centrifugeuse-biologie-medicale/' },
+      { text: 'Recherche Scientifique', url: '/applications/centrifugeuse-recherche-scientifique/' },
+      { text: 'Industrie Pharmaceutique', url: '/applications/centrifugeuse-industrie-pharmaceutique/' }
+    ]
+  }
+];
+---
+
+<Layout title="Protocoles de Centrifugation - Guide Complet">
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Protocoles de Centrifugation en Laboratoire",
+      "description": "Guide expert des protocoles de centrifugation pour optimiser vos résultats en laboratoire.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Séparation de Plasma",
+          "text": "Protocole de séparation du plasma sanguin par centrifugation à 3,000 RPM pendant 15 minutes"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Isolation de Lymphocytes",
+          "text": "Protocole d'isolation des lymphocytes par gradient de densité à 1,500-2,000 RPM"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Purification d'ADN",
+          "text": "Protocole de purification d'ADN par centrifugation à 14,000 RPM"
+        }
+      ]
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Protocoles de Centrifugation pour Centrifugeuse Labo
+      </h1>
+      <p class="text-xl text-gray-600 mb-4">
+        Guide expert des protocoles de centrifugation pour optimiser vos résultats en laboratoire.
+      </p>
+      <p class="text-lg text-gray-600 mb-8">
+        Découvrez nos protocoles validés et optimisés pour chaque type d'application, 
+        avec les paramètres précis pour votre centrifugeuse de laboratoire.
+      </p>
+
+      <!-- Quick Links -->
+      <div class="bg-blue-50 p-6 rounded-lg mb-8">
+        <h2 class="text-lg font-semibold mb-4">Navigation Rapide :</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          {protocoles.map(protocole => (
+            <a href={`#${protocole.title.toLowerCase().replace(/ /g, '-')}`} 
+               class="flex items-center p-2 bg-white rounded hover:shadow-md transition-shadow">
+              <span class="text-blue-600 mr-2">→</span>
+              {protocole.title}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <a href="/devis-centrifugeuse/" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Demander un Devis
+          <span class="block text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+        <a href="/guide-achat-centrifugeuse-laboratoire/" class="btn-secondary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M12 6V12L16 14M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Guide d'Achat
+          <span class="block text-sm opacity-90">Conseils d'experts</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Protocoles -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      {protocoles.map(protocole => (
+        <div id={protocole.title.toLowerCase().replace(/ /g, '-')} 
+             class="bg-white rounded-lg shadow-sm p-6 scroll-mt-20">
+          <h2 class="text-2xl font-semibold mb-4">{protocole.title}</h2>
+          
+          <div class="bg-gray-50 p-4 rounded-lg mb-6">
+            <h3 class="text-lg font-medium mb-2">Paramètres:</h3>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Vitesse: {protocole.specs.vitesse}</li>
+              <li>Temps: {protocole.specs.temps}</li>
+              <li>Température: {protocole.specs.temperature}</li>
+            </ul>
+            <div class="mt-4 text-sm text-gray-500">
+              <a href="/guide/calcul-force-centrifuge/" class="text-blue-600 hover:text-blue-800">
+                Calculer la force G équivalente →
+              </a>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <h3 class="text-lg font-medium mb-2">Étapes:</h3>
+            <ol class="list-decimal list-inside text-gray-600">
+              {protocole.etapes.map(etape => (
+                <li class="mb-2 pl-2">{etape}</li>
+              ))}
+            </ol>
+          </div>
+          
+          <div class="mt-6 pt-6 border-t border-gray-200">
+            <h3 class="text-lg font-medium mb-3">Équipement Recommandé :</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <a href="/centrifugeuses/paillasse/" 
+                 class="text-blue-600 hover:text-blue-800 flex items-center">
+                <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Centrifugeuses de Paillasse
+              </a>
+              <a href="/guide/choisir-rotor-centrifugeuse/" 
+                 class="text-blue-600 hover:text-blue-800 flex items-center">
+                <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Guide Choix du Rotor
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Related Content -->
+    <div class="grid md:grid-cols-2 gap-8">
+      {relatedContent.map(section => (
+        <div class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors duration-200">
+          <h2 class="text-xl font-semibold mb-4">{section.title}</h2>
+          <ul class="space-y-3">
+            {section.links.map(link => (
+              <li>
+                <a href={link.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                  <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Expert Contact -->
+    <div class="mt-12 bg-blue-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Besoin d'un Protocol Personnalisé ?</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Nos experts sont là pour vous aider à optimiser vos protocoles de centrifugation
+      </p>
+      <a href="/devis-centrifugeuse/" class="btn-primary inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Contacter un Expert
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

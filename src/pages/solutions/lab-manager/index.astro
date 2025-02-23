@@ -1,0 +1,372 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const painPoints = [
+  {
+    titre: 'Optimisation Budget',
+    description: 'Solutions rentables avec ROI démontré',
+    points: [
+      'Réduction coûts maintenance',
+      'Durée de vie prolongée',
+      'Consommation optimisée',
+      'Retour sur investissement rapide'
+    ],
+    icon: 'budget'
+  },
+  {
+    titre: 'Performance & Fiabilité',
+    description: 'Équipements robustes et performants',
+    points: [
+      'Disponibilité maximale',
+      'Résultats reproductibles',
+      'Maintenance préventive',
+      'Support technique 24/7'
+    ],
+    icon: 'performance'
+  },
+  {
+    titre: 'Conformité & Qualité',
+    description: 'Solutions certifiées et traçables',
+    points: [
+      'Documentation complète',
+      'Normes ISO/GMP',
+      'Traçabilité totale',
+      'Validation simplifiée'
+    ],
+    icon: 'compliance'
+  }
+];
+
+const solutions = [
+  {
+    type: 'Centrifugeuse de Paillasse',
+    description: 'Solution polyvalente haute performance',
+    specs: {
+      vitesse: 'jusqu\'à 15,000 RPM',
+      volume: '0.2-750 mL',
+      programmes: '99 programmes'
+    },
+    avantages: [
+      'Polyvalence maximale',
+      'Maintenance simplifiée',
+      'Formation rapide',
+      'Excellent ROI'
+    ],
+    url: '/centrifugeuses/paillasse/'
+  },
+  {
+    type: 'Centrifugeuse Réfrigérée',
+    description: 'Protection optimale des échantillons',
+    specs: {
+      vitesse: 'jusqu\'à 30,000 RPM',
+      temperature: '-20°C à +40°C',
+      volume: '0.2-500 mL'
+    },
+    avantages: [
+      'Contrôle précis',
+      'Économie d\'énergie',
+      'Protection échantillons',
+      'Durabilité prouvée'
+    ],
+    url: '/centrifugeuses/refrigerees/'
+  }
+];
+
+const services = [
+  {
+    titre: 'Installation & Formation',
+    description: 'Service complet de mise en service',
+    points: [
+      'Installation certifiée',
+      'Formation utilisateurs',
+      'Documentation complète',
+      'Support post-installation'
+    ],
+    url: '/formation-utilisation-centrifugeuse/'
+  },
+  {
+    titre: 'Maintenance Préventive',
+    description: 'Programme d\'entretien optimisé',
+    points: [
+      'Visites planifiées',
+      'Pièces d\'origine',
+      'Rapports détaillés',
+      'Traçabilité complète'
+    ],
+    url: '/maintenance/entretien-centrifugeuse-laboratoire/'
+  },
+  {
+    titre: 'Location Flexible',
+    description: 'Solutions adaptables à vos besoins',
+    points: [
+      'Contrats flexibles',
+      'Service tout inclus',
+      'Support prioritaire',
+      'Option d\'achat'
+    ],
+    url: '/location-centrifugeuse-laboratoire/'
+  }
+];
+
+const applications = [
+  {
+    domaine: 'Biologie Médicale',
+    description: 'Solutions validées pour laboratoires d\'analyses',
+    url: '/applications/centrifugeuse-biologie-medicale/'
+  },
+  {
+    domaine: 'Recherche',
+    description: 'Équipements haute performance pour la recherche',
+    url: '/applications/centrifugeuse-recherche-scientifique/'
+  },
+  {
+    domaine: 'Industrie Pharma',
+    description: 'Solutions conformes GMP pour la production',
+    url: '/applications/centrifugeuse-industrie-pharmaceutique/'
+  }
+];
+
+const ressources = [
+  {
+    titre: 'Guides Pratiques',
+    liens: [
+      { texte: 'Guide d\'Achat', url: '/guide-achat-centrifugeuse-laboratoire/' },
+      { texte: 'Normes & Sécurité', url: '/securite/normes-centrifugeuse-laboratoire/' },
+      { texte: 'Maintenance', url: '/maintenance/entretien-centrifugeuse-laboratoire/' }
+    ]
+  },
+  {
+    titre: 'Outils',
+    liens: [
+      { texte: 'Calculateur Force G', url: '/guide/calcul-force-centrifuge/' },
+      { texte: 'Choix du Rotor', url: '/guide/choisir-rotor-centrifugeuse/' },
+      { texte: 'Protocoles', url: '/guide/protocoles-centrifugation/' }
+    ]
+  }
+];
+---
+
+<Layout title="Solutions Centrifugeuse pour Responsable Laboratoire - Optimisation & Performance">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Solutions de Centrifugation pour Responsables de Laboratoire",
+      "description": "Solutions complètes de centrifugation optimisées pour les responsables de laboratoire. Performance, fiabilité et ROI optimisé.",
+      "brand": {
+        "@type": "Brand",
+        "name": "CentrifugeLab"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Responsables de Laboratoire"
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Solutions Centrifugeuse Labo pour Responsables de Laboratoire
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Optimisez votre laboratoire avec nos solutions de centrifugation complètes.
+        Performance, fiabilité et retour sur investissement optimisé.
+      </p>
+      <div class="flex gap-4">
+        <a href="/devis-centrifugeuse/?persona=lab-manager&utm_source=lab_manager" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Devis Personnalisé
+          <span class="block text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+        <a href="/guide-achat-centrifugeuse-laboratoire/?utm_source=lab_manager" class="btn-secondary">
+          Guide d'Achat
+          <span class="block text-sm opacity-90">Conseils experts</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Points Clés -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Solutions Adaptées à vos Enjeux</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {painPoints.map(point => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="mb-4">
+              {point.icon === 'budget' && (
+                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 8v1m0-8c-1.11 0-2.08.402-2.599 1M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              )}
+              {point.icon === 'performance' && (
+                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+              {point.icon === 'compliance' && (
+                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="text-xl font-semibold mb-3">{point.titre}</h3>
+            <p class="text-gray-600 mb-4">{point.description}</p>
+            <ul class="space-y-2">
+              {point.points.map(item => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Solutions Recommandées</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {solutions.map(solution => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-2">{solution.type}</h3>
+            <p class="text-gray-600 mb-4">{solution.description}</p>
+            
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Spécifications :</h4>
+              <ul class="space-y-2">
+                {Object.entries(solution.specs).map(([key, value]) => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{key}: {value}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Avantages :</h4>
+              <ul class="space-y-2">
+                {solution.avantages.map(avantage => (
+                  <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">→</span>
+                    <span>{avantage}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a href={solution.url} class="btn-primary w-full justify-center">
+              Découvrir
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Services Associés</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {services.map(service => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{service.titre}</h3>
+            <p class="text-gray-600 mb-4">{service.description}</p>
+            <ul class="space-y-2 mb-6">
+              {service.points.map(point => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={service.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+              En savoir plus
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Solutions par Domaine</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {applications.map(app => (
+          <a href={app.url} class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
+            <h3 class="text-xl font-semibold mb-3">{app.domaine}</h3>
+            <p class="text-gray-600 mb-4">{app.description}</p>
+            <div class="text-blue-600 flex items-center">
+              Découvrir les solutions
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Ressources -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Ressources Utiles</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {ressources.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.titre}</h3>
+            <ul class="space-y-3">
+              {section.liens.map(lien => (
+                <li>
+                  <a href={lien.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {lien.texte}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <div class="bg-blue-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Optimisez votre Laboratoire</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Nos experts sont là pour vous accompagner dans le choix et l'optimisation de vos équipements
+      </p>
+      <a href="/devis-centrifugeuse/?persona=lab-manager&utm_source=lab_manager_bottom" class="btn-primary inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Contacter un Expert
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>

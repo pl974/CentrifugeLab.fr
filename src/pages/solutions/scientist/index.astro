@@ -1,0 +1,401 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const painPoints = [
+  {
+    titre: 'Précision & Reproductibilité',
+    description: 'Résultats fiables et reproductibles',
+    points: [
+      'Contrôle précis des paramètres',
+      'Calibration certifiée',
+      'Traçabilité complète',
+      'Validation des protocoles'
+    ],
+    icon: 'precision'
+  },
+  {
+    titre: 'Protocoles Spécifiques',
+    description: 'Adaptabilité aux besoins de recherche',
+    points: [
+      'Programmes personnalisables',
+      'Gradients complexes',
+      'Séparation fine',
+      'Contrôle température'
+    ],
+    icon: 'protocol'
+  },
+  {
+    titre: 'Support Technique',
+    description: 'Expertise et assistance dédiée',
+    points: [
+      'Support scientifique',
+      'Optimisation protocoles',
+      'Documentation détaillée',
+      'Formation avancée'
+    ],
+    icon: 'support'
+  }
+];
+
+const solutions = [
+  {
+    type: 'Ultracentrifugeuse',
+    description: 'Performance extrême pour la recherche avancée',
+    specs: {
+      vitesse: 'jusqu\'à 150,000 RPM',
+      volume: '0.2-30 mL',
+      force: 'jusqu\'à 1,000,000 × g',
+      temperature: '0-40°C'
+    },
+    avantages: [
+      'Séparation ultra-fine',
+      'Contrôle précis',
+      'Interface avancée',
+      'Rotors spécialisés'
+    ],
+    url: '/centrifugeuses/ultra/'
+  },
+  {
+    type: 'Centrifugeuse Réfrigérée',
+    description: 'Protection optimale des échantillons sensibles',
+    specs: {
+      vitesse: 'jusqu\'à 30,000 RPM',
+      volume: '0.2-500 mL',
+      temperature: '-20°C à +40°C',
+      programmes: '99 programmes'
+    },
+    avantages: [
+      'Stabilité thermique',
+      'Polyvalence maximale',
+      'Programmation avancée',
+      'Protection échantillons'
+    ],
+    url: '/centrifugeuses/refrigerees/'
+  }
+];
+
+const applications = [
+  {
+    domaine: 'Biologie Moléculaire',
+    protocoles: [
+      'Isolation ADN/ARN',
+      'Purification protéines',
+      'Fractionnement subcellulaire',
+      'Séparation organites'
+    ],
+    url: '/applications/centrifugeuse-recherche-scientifique/'
+  },
+  {
+    domaine: 'Chimie Analytique',
+    protocoles: [
+      'Séparation de phases',
+      'Purification composés',
+      'Études colloïdales',
+      'Analyses structurales'
+    ],
+    url: '/applications/centrifugeuse-chimie-analytique/'
+  },
+  {
+    domaine: 'Recherche Pharmaceutique',
+    protocoles: [
+      'Développement vaccins',
+      'Tests stabilité',
+      'Études formulation',
+      'Validation process'
+    ],
+    url: '/applications/centrifugeuse-industrie-pharmaceutique/'
+  }
+];
+
+const services = [
+  {
+    titre: 'Formation Avancée',
+    description: 'Programme spécialisé recherche',
+    points: [
+      'Protocoles complexes',
+      'Optimisation méthodes',
+      'Analyse données',
+      'Certification avancée'
+    ],
+    url: '/formation-utilisation-centrifugeuse/'
+  },
+  {
+    titre: 'Support Scientifique',
+    description: 'Expertise technique dédiée',
+    points: [
+      'Conseil protocoles',
+      'Validation méthodes',
+      'Support applications',
+      'Documentation GLP'
+    ],
+    url: '/maintenance/entretien-centrifugeuse-laboratoire/'
+  },
+  {
+    titre: 'Location Spécialisée',
+    description: 'Solutions flexibles recherche',
+    points: [
+      'Équipements validés',
+      'Durées adaptables',
+      'Support prioritaire',
+      'Installation incluse'
+    ],
+    url: '/location-centrifugeuse-laboratoire/'
+  }
+];
+
+const ressources = [
+  {
+    titre: 'Documentation Technique',
+    liens: [
+      { texte: 'Calculateur Force G', url: '/guide/calcul-force-centrifuge/' },
+      { texte: 'Protocoles Validés', url: '/guide/protocoles-centrifugation/' },
+      { texte: 'Guide Rotors', url: '/guide/choisir-rotor-centrifugeuse/' }
+    ]
+  },
+  {
+    titre: 'Guides & Normes',
+    liens: [
+      { texte: 'Guide d\'Achat', url: '/guide-achat-centrifugeuse-laboratoire/' },
+      { texte: 'Normes Sécurité', url: '/securite/normes-centrifugeuse-laboratoire/' },
+      { texte: 'Maintenance', url: '/maintenance/entretien-centrifugeuse-laboratoire/' }
+    ]
+  }
+];
+---
+
+<Layout title="Solutions Centrifugeuse pour Chercheurs - Précision & Performance">
+  <!-- Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Solutions de Centrifugation pour Chercheurs",
+      "description": "Solutions de centrifugation haute performance pour la recherche scientifique. Précision, reproductibilité et support technique expert.",
+      "brand": {
+        "@type": "Brand",
+        "name": "CentrifugeLab"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Chercheurs Scientifiques"
+      }
+    }
+  </script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Solutions Centrifugeuse Labo pour Chercheurs Scientifiques
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Solutions haute performance pour vos protocoles de recherche les plus exigeants.
+        Précision, reproductibilité et support technique expert.
+      </p>
+      <div class="flex gap-4">
+        <a href="/devis-centrifugeuse/?persona=scientist&utm_source=scientist" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Devis Personnalisé
+          <span class="block text-sm opacity-90">Réponse sous 24h</span>
+        </a>
+        <a href="/guide/calcul-force-centrifuge/?utm_source=scientist" class="btn-secondary">
+          Calculateur Force G
+          <span class="block text-sm opacity-90">Outil gratuit</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Points Clés -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Solutions Adaptées à vos Recherches</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {painPoints.map(point => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="mb-4">
+              {point.icon === 'precision' && (
+                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 9V7M12 17v-2M7 12H5m14 0h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              )}
+              {point.icon === 'protocol' && (
+                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+              {point.icon === 'support' && (
+                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 18v-6a9 9 0 0118 0v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="text-xl font-semibold mb-3">{point.titre}</h3>
+            <p class="text-gray-600 mb-4">{point.description}</p>
+            <ul class="space-y-2">
+              {point.points.map(item => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Équipements Haute Performance</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {solutions.map(solution => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-2">{solution.type}</h3>
+            <p class="text-gray-600 mb-4">{solution.description}</p>
+            
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Spécifications :</h4>
+              <ul class="space-y-2">
+                {Object.entries(solution.specs).map(([key, value]) => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{key}: {value}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Avantages :</h4>
+              <ul class="space-y-2">
+                {solution.avantages.map(avantage => (
+                  <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">→</span>
+                    <span>{avantage}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a href={solution.url} class="btn-primary w-full justify-center">
+              Découvrir
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Applications Scientifiques</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {applications.map(app => (
+          <a href={app.url} class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
+            <h3 class="text-xl font-semibold mb-4">{app.domaine}</h3>
+            <ul class="space-y-2 mb-6">
+              {app.protocoles.map(protocole => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{protocole}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="text-blue-600 flex items-center mt-auto">
+              Voir les protocoles
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Services Spécialisés</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {services.map(service => (
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-3">{service.titre}</h3>
+            <p class="text-gray-600 mb-4">{service.description}</p>
+            <ul class="space-y-2 mb-6">
+              {service.points.map(point => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={service.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+              En savoir plus
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Ressources -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-8">Ressources Techniques</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {ressources.map(section => (
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4">{section.titre}</h3>
+            <ul class="space-y-3">
+              {section.liens.map(lien => (
+                <li>
+                  <a href={lien.url} class="text-blue-600 hover:text-blue-800 flex items-center">
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {lien.texte}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <div class="bg-blue-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Optimisez vos Protocoles de Recherche</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Nos experts sont là pour vous conseiller sur les meilleures solutions pour vos applications scientifiques
+      </p>
+      <a href="/devis-centrifugeuse/?persona=scientist&utm_source=scientist_bottom" class="btn-primary inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Contacter un Expert
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+</style>
