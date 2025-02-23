@@ -2,6 +2,7 @@
 
 ## 🎯 Objectif
 Position #1 sur Google pour "Centrifugeuse Labo" avec maximisation des demandes de devis qualifiés.
+on y est!
 
 ## 👥 Personas Cibles
 1. **Responsable Laboratoire**
