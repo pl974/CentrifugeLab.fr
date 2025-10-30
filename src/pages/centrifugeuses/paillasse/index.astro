@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
+import FAQ from '../../../components/FAQ.astro';
 
 const caracteristiques = [
   {
@@ -136,6 +137,29 @@ const services = [
       'Support 24/7'
     ],
     url: '/location-centrifugeuse-laboratoire/'
+  }
+];
+
+const faqItems = [
+  {
+    question: "Quelle est la différence entre RPM et RCF ?",
+    answer: "RPM (rotations par minute) mesure la vitesse de rotation, tandis que RCF (force centrifuge relative) mesure la force réelle appliquée aux échantillons. Le RCF dépend du RPM et du rayon du rotor. Pour des résultats reproductibles, utilisez toujours le RCF dans vos protocoles."
+  },
+  {
+    question: "Puis-je utiliser différents types de rotors ?",
+    answer: "Oui, nos centrifugeuses de paillasse acceptent plusieurs types de rotors interchangeables : angle fixe pour séparation rapide, godets oscillants pour gradients de densité, et rotors spécialisés pour applications spécifiques. Chaque rotor est conçu pour des volumes et applications spécifiques."
+  },
+  {
+    question: "Quelle maintenance est nécessaire ?",
+    answer: "La maintenance préventive comprend : nettoyage régulier après chaque utilisation, inspection visuelle hebdomadaire, calibration annuelle certifiée, et remplacement des pièces d'usure selon les recommandations. Nos contrats de maintenance incluent toutes ces opérations."
+  },
+  {
+    question: "Combien de temps pour l'installation ?",
+    answer: "L'installation complète prend généralement 2-3 heures, incluant : déballage et inspection, mise en place et nivellement, raccordements électriques, tests de fonctionnement, et formation de base des utilisateurs. Nos techniciens s'occupent de tout."
+  },
+  {
+    question: "Quelle est la durée de vie moyenne ?",
+    answer: "Avec une utilisation normale et une maintenance appropriée, nos centrifugeuses de paillasse ont une durée de vie de 10-15 ans. La durée peut varier selon l'intensité d'utilisation et le respect des protocoles de maintenance. Nos modèles Pro offrent une durabilité renforcée."
   }
 ];
 ---
@@ -369,8 +393,11 @@ const services = [
       </div>
     </section>
 
+    <!-- FAQ Section -->
+    <FAQ items={faqItems} />
+
     <!-- CTA Final -->
-    <div class="bg-blue-50 rounded-lg p-8 text-center">
+    <div class="bg-blue-50 rounded-lg p-8 text-center mt-12">
       <h2 class="text-2xl font-semibold mb-4">Besoin d'un Conseil Personnalisé ?</h2>
       <p class="text-lg text-gray-600 mb-6">
         Nos experts sont là pour vous guider vers la centrifugeuse de paillasse idéale pour vos besoins

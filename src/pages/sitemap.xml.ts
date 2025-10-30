@@ -22,6 +22,7 @@ export async function GET() {
 
     // Guides
     '/guide-achat-centrifugeuse-laboratoire/',
+    '/comparaison-centrifugeuses/',
     '/guide/choisir-rotor-centrifugeuse/',
     '/guide/calcul-force-centrifuge/',
     '/guide/protocoles-centrifugation/',
