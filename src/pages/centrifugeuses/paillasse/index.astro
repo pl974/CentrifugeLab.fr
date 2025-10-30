@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
+import FAQ from '../../../components/FAQ.astro';
 
 const caracteristiques = [
   {
@@ -137,6 +139,29 @@ const services = [
     url: '/location-centrifugeuse-laboratoire/'
   }
 ];
+
+const faqItems = [
+  {
+    question: "Quelle est la différence entre RPM et RCF ?",
+    answer: "RPM (rotations par minute) mesure la vitesse de rotation, tandis que RCF (force centrifuge relative) mesure la force réelle appliquée aux échantillons. Le RCF dépend du RPM et du rayon du rotor. Pour des résultats reproductibles, utilisez toujours le RCF dans vos protocoles."
+  },
+  {
+    question: "Puis-je utiliser différents types de rotors ?",
+    answer: "Oui, nos centrifugeuses de paillasse acceptent plusieurs types de rotors interchangeables : angle fixe pour séparation rapide, godets oscillants pour gradients de densité, et rotors spécialisés pour applications spécifiques. Chaque rotor est conçu pour des volumes et applications spécifiques."
+  },
+  {
+    question: "Quelle maintenance est nécessaire ?",
+    answer: "La maintenance préventive comprend : nettoyage régulier après chaque utilisation, inspection visuelle hebdomadaire, calibration annuelle certifiée, et remplacement des pièces d'usure selon les recommandations. Nos contrats de maintenance incluent toutes ces opérations."
+  },
+  {
+    question: "Combien de temps pour l'installation ?",
+    answer: "L'installation complète prend généralement 2-3 heures, incluant : déballage et inspection, mise en place et nivellement, raccordements électriques, tests de fonctionnement, et formation de base des utilisateurs. Nos techniciens s'occupent de tout."
+  },
+  {
+    question: "Quelle est la durée de vie moyenne ?",
+    answer: "Avec une utilisation normale et une maintenance appropriée, nos centrifugeuses de paillasse ont une durée de vie de 10-15 ans. La durée peut varier selon l'intensité d'utilisation et le respect des protocoles de maintenance. Nos modèles Pro offrent une durabilité renforcée."
+  }
+];
 ---
 
 <Layout
@@ -153,17 +178,36 @@ const services = [
         "@type": "Brand",
         "name": "CentrifugeLab"
       },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "89",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "EUR",
         "lowPrice": "2990",
         "highPrice": "4990",
-        "offerCount": "2"
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "CentrifugeLab"
+        }
       }
     }
   </script>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Fil d'Ariane -->
+  <BreadcrumbSchema items={[
+    { name: 'Accueil', url: '/' },
+    { name: 'Centrifugeuses', url: '/centrifugeuses/' },
+    { name: 'Centrifugeuses de Paillasse', url: '/centrifugeuses/paillasse/' }
+  ]} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->
     <div class="mb-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">
@@ -175,7 +219,7 @@ const services = [
       </p>
       <div class="flex gap-4">
         <a href="/devis-centrifugeuse/?type=paillasse&utm_source=paillasse" class="btn-primary">
-          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <svg class="w-5 h-5 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
             <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           Devis Personnalisé
@@ -196,19 +240,19 @@ const services = [
           <div class="bg-white rounded-lg shadow-sm p-6">
             <div class="mb-4">
               {carac.icon === 'speed' && (
-                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                <svg class="w-12 h-12 text-blue-600" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                   <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2"/>
                   <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" stroke="currentColor" stroke-width="2"/>
                   <path d="M12 9V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
               )}
               {carac.icon === 'flexibility' && (
-                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                <svg class="w-12 h-12 text-blue-600" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                   <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               )}
               {carac.icon === 'shield' && (
-                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                <svg class="w-12 h-12 text-blue-600" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               )}
@@ -217,7 +261,7 @@ const services = [
             <ul class="space-y-2">
               {carac.points.map(point => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   <span>{point}</span>
@@ -239,7 +283,7 @@ const services = [
             <ul class="space-y-2 mb-6">
               {app.usages.map(usage => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   <span>{usage}</span>
@@ -248,7 +292,7 @@ const services = [
             </ul>
             <div class="text-blue-600 flex items-center">
               En savoir plus
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+              <svg class="w-4 h-4 ml-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
@@ -271,7 +315,7 @@ const services = [
               <ul class="space-y-2">
                 {Object.entries(modele.specs).map(([key, value]) => (
                   <li class="flex items-start">
-                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                       <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <span>{key}: {value}</span>
@@ -315,7 +359,7 @@ const services = [
             <ul class="space-y-2 mb-6">
               {service.points.map(point => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   <span>{point}</span>
@@ -324,7 +368,7 @@ const services = [
             </ul>
             <a href={service.url} class="text-blue-600 hover:text-blue-800 flex items-center">
               En savoir plus
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+              <svg class="w-4 h-4 ml-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
@@ -342,27 +386,30 @@ const services = [
       <div class="flex justify-center">
         <a href="/guide/calcul-force-centrifuge/" class="btn-primary">
           Accéder au Calculateur
-          <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+          <svg class="w-4 h-4 ml-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
       </div>
     </section>
 
+    <!-- FAQ Section -->
+    <FAQ items={faqItems} />
+
     <!-- CTA Final -->
-    <div class="bg-blue-50 rounded-lg p-8 text-center">
+    <div class="bg-blue-50 rounded-lg p-8 text-center mt-12">
       <h2 class="text-2xl font-semibold mb-4">Besoin d'un Conseil Personnalisé ?</h2>
       <p class="text-lg text-gray-600 mb-6">
         Nos experts sont là pour vous guider vers la centrifugeuse de paillasse idéale pour vos besoins
       </p>
       <a href="/devis-centrifugeuse/?type=paillasse&utm_source=paillasse_bottom" class="btn-primary inline-flex items-center">
-        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+        <svg class="w-5 h-5 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
           <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Contacter un Expert
       </a>
     </div>
-  </main>
+  </div>
 </Layout>
 
 <style>

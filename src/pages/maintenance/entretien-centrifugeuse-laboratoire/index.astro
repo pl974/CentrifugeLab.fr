@@ -132,7 +132,7 @@ const relatedContent = [
     }
   </script>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">
         Guide Maintenance Centrifugeuse Labo : Optimisez votre Équipement
@@ -142,7 +142,7 @@ const relatedContent = [
       </p>
       <div class="flex gap-4">
         <a href="/devis-centrifugeuse/?utm_source=maintenance" class="btn-primary">
-          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <svg class="w-5 h-5 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
             <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           Contrat de Maintenance
@@ -165,7 +165,7 @@ const relatedContent = [
             <ul class="space-y-2 mb-4">
               {step.tasks.map(task => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   <span>{task}</span>
@@ -221,7 +221,7 @@ const relatedContent = [
             <ul class="space-y-3 mb-6">
               {service.benefits.map(benefit => (
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 text-blue-600 mr-2" viewBox="0 0 24 24" fill="none">
+                  <svg class="w-5 h-5 text-blue-600 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   {benefit}
@@ -251,7 +251,7 @@ const relatedContent = [
               {section.links.map(link => (
                 <li>
                   <a href={link.url} class="text-blue-600 hover:text-blue-800 flex items-center">
-                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                    <svg class="w-4 h-4 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                       <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     {link.text}
@@ -263,7 +263,7 @@ const relatedContent = [
         ))}
       </div>
     </section>
-  </main>
+  </div>
 </Layout>
 
 <style>

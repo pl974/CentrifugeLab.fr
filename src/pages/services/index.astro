@@ -194,7 +194,7 @@ const applications = [
     }
   </script>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->
     <div class="mb-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">
@@ -206,7 +206,7 @@ const applications = [
       </p>
       <div class="flex gap-4">
         <a href="/devis-centrifugeuse/?utm_source=services" class="btn-primary">
-          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <svg class="w-5 h-5 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
             <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           Devis Personnalisé
@@ -243,7 +243,7 @@ const applications = [
             <ul class="space-y-2">
               {service.avantages.map(avantage => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   <span>{avantage}</span>
@@ -273,7 +273,7 @@ const applications = [
                 <ul class="space-y-3 mb-6">
                   {option.inclus.map(item => (
                     <li class="flex items-start">
-                      <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                      <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                         <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>
                       <span>{item}</span>
@@ -304,7 +304,7 @@ const applications = [
             <ul class="space-y-3 mb-6">
               {app.services.map(service => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   <span>{service}</span>
@@ -313,7 +313,7 @@ const applications = [
             </ul>
             <a href={app.url} class="text-blue-600 hover:text-blue-800 flex items-center">
               En savoir plus
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+              <svg class="w-4 h-4 ml-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
@@ -329,13 +329,13 @@ const applications = [
         Nos experts sont là pour vous proposer la solution adaptée à vos besoins spécifiques
       </p>
       <a href="/devis-centrifugeuse/?utm_source=services_bottom" class="btn-primary inline-flex items-center">
-        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+        <svg class="w-5 h-5 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
           <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Contacter un Expert
       </a>
     </div>
-  </main>
+  </div>
 </Layout>
 
 <style>
