@@ -3,11 +3,10 @@ import { getCollection } from 'astro:content';
 export async function GET() {
   const allPosts = await getCollection('blog');
 
-  // Génère les URLs pour les pages du blog
-  const blogPages = allPosts.map(post => `/blog/${post.slug}`);
+  // Génère les URLs pour les pages du blog (exclure les brouillons)
+  const publishedPosts = allPosts.filter(post => post.data.draft !== true);
+  const blogPages = publishedPosts.map(post => `/blog/${post.slug}/`);
 
-
- 
   // Concatène toutes les pages statiques et dynamiques
   const pages = [
     // Page d'accueil
@@ -58,7 +57,11 @@ export async function GET() {
     '/cgv/',
 
     // Contact
-    '/contact/'
+    '/contact/',
+
+    // Blog
+    '/blog/',
+    ...blogPages
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

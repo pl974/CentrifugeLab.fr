@@ -1,0 +1,90 @@
+---
+/**
+ * Composant Google Analytics 4
+ *
+ * Intègre Google Analytics avec:
+ * - Respect du RGPD (consent mode)
+ * - Anonymisation des IPs
+ * - Configuration centralisée
+ *
+ * IMPORTANT: Configurer le Measurement ID dans src/config/analytics.ts
+ */
+
+import { analytics } from '../config/analytics';
+
+// Ne charger GA que si activé ET en production
+const shouldLoadGA = analytics.enabled && analytics.ga4MeasurementId !== 'G-XXXXXXXXXX';
+---
+
+{shouldLoadGA && (
+  <>
+    <!-- Google tag (gtag.js) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${analytics.ga4MeasurementId}`}></script>
+    <script define:vars={{ measurementId: analytics.ga4MeasurementId, config: analytics.config }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Configuration RGPD - Mode consentement par défaut
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'wait_for_update': 500
+      });
+
+      gtag('js', new Date());
+
+      // Configuration Google Analytics
+      gtag('config', measurementId, {
+        'anonymize_ip': config.anonymize_ip,
+        'cookie_flags': config.cookie_flags,
+        'cookie_expires': config.cookie_expires,
+        'cookie_domain': config.cookie_domain,
+      });
+
+      // Exposer gtag globalement
+      window.gtag = gtag;
+    </script>
+
+    <!-- Script de gestion du consentement cookies -->
+    <script>
+      // Vérifier si l'utilisateur a déjà donné son consentement
+      function checkCookieConsent() {
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+          // Mettre à jour le consentement Google Analytics
+          window.gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+          });
+        }
+      }
+
+      // Vérifier au chargement de la page
+      if (typeof window !== 'undefined') {
+        checkCookieConsent();
+
+        // Écouter les changements de consentement
+        window.addEventListener('cookieConsentAccepted', function() {
+          window.gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+          });
+          localStorage.setItem('cookieConsent', 'accepted');
+        });
+
+        window.addEventListener('cookieConsentDenied', function() {
+          window.gtag('consent', 'update', {
+            'analytics_storage': 'denied'
+          });
+          localStorage.setItem('cookieConsent', 'denied');
+        });
+      }
+    </script>
+  </>
+)}
+
+{!shouldLoadGA && import.meta.env.DEV && (
+  <!-- Message de debug en développement -->
+  <script>
+    console.log('Google Analytics désactivé (mode développement ou ID non configuré)');
+    console.log('Pour activer GA: Configurer analytics.ga4MeasurementId dans src/config/analytics.ts');
+  </script>
+)}

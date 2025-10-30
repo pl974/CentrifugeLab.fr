@@ -1,0 +1,401 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Récupérer les articles connexes (même catégorie, excluant l'article actuel)
+const allPosts = await getCollection('blog', ({ data }) => data.draft !== true);
+const relatedPosts = allPosts
+  .filter(p => p.data.category === post.data.category && p.slug !== post.slug)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+// Formater la date
+const formatDate = (date: Date) => {
+  return new Date(date).toLocaleDateString('fr-FR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+
+// Calculer le temps de lecture (moyenne 200 mots/min)
+const calculateReadingTime = (content: string) => {
+  const wordsPerMinute = 200;
+  const wordCount = content.split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
+  return minutes;
+};
+
+const categoryLabels = {
+  'guides': 'Guide',
+  'actualites': 'Actualité',
+  'nouveautes': 'Nouveauté',
+  'conseils': 'Conseil',
+  'maintenance': 'Maintenance',
+  'reglementation': 'Réglementation',
+  'cas-pratiques': 'Cas Pratique'
+};
+
+const pageTitle = post.data.metaTitle || post.data.title;
+const pageDescription = post.data.metaDescription || post.data.description;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+>
+  <!-- Schema.org BlogPosting -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "image": post.data.image ? `https://centrifugelab.fr${post.data.image.src}` : undefined,
+    "datePublished": post.data.pubDate.toISOString(),
+    "dateModified": post.data.updatedDate ? post.data.updatedDate.toISOString() : post.data.pubDate.toISOString(),
+    "author": {
+      "@type": "Person",
+      "name": post.data.author,
+      "jobTitle": post.data.authorRole
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CentrifugeLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://centrifugelab.fr/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://centrifugelab.fr/blog/${post.slug}/`
+    },
+    "articleSection": categoryLabels[post.data.category as keyof typeof categoryLabels],
+    "keywords": post.data.tags.join(', ')
+  })} />
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://centrifugelab.fr/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://centrifugelab.fr/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.data.title,
+        "item": `https://centrifugelab.fr/blog/${post.slug}/`
+      }
+    ]
+  })} />
+
+  <!-- Breadcrumb visible -->
+  <nav aria-label="Fil d'Ariane" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <ol class="flex items-center gap-2 text-sm text-gray-600">
+      <li><a href="/" class="hover:text-blue-600">Accueil</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+      <li aria-hidden="true">/</li>
+      <li class="text-gray-900 font-semibold truncate">{post.data.title}</li>
+    </ol>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full">
+        {categoryLabels[post.data.category as keyof typeof categoryLabels]}
+      </span>
+      <time class="text-sm text-gray-600" datetime={post.data.pubDate.toISOString()}>
+        {formatDate(post.data.pubDate)}
+      </time>
+      {post.data.updatedDate && (
+        <span class="text-sm text-gray-500">
+          • Mis à jour le {formatDate(post.data.updatedDate)}
+        </span>
+      )}
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+      {post.data.title}
+    </h1>
+
+    <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+      {post.data.description}
+    </p>
+
+    <div class="flex items-center justify-between border-t border-b border-gray-200 py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+          <span class="text-blue-600 font-semibold text-lg">
+            {post.data.author.split(' ').map(n => n[0]).join('')}
+          </span>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-900">{post.data.author}</p>
+          {post.data.authorRole && (
+            <p class="text-sm text-gray-600">{post.data.authorRole}</p>
+          )}
+        </div>
+      </div>
+      <div class="text-sm text-gray-600">
+        ⏱️ {calculateReadingTime(post.body)} min de lecture
+      </div>
+    </div>
+
+    {post.data.image && (
+      <img
+        src={post.data.image.src}
+        alt={post.data.image.alt}
+        class="w-full h-auto rounded-lg mt-8 shadow-lg"
+        loading="eager"
+      />
+    )}
+  </header>
+
+  <!-- Article Content -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 prose prose-lg prose-blue max-w-none">
+    <Content />
+  </article>
+
+  <!-- Tags -->
+  {post.data.tags.length > 0 && (
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 border-t">
+      <h3 class="text-sm font-semibold text-gray-700 mb-3">Mots-clés :</h3>
+      <div class="flex flex-wrap gap-2">
+        {post.data.tags.map((tag) => (
+          <span class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- CTA Contact -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-8 text-white text-center">
+      <h3 class="text-2xl font-bold mb-3">Besoin de Conseils Personnalisés ?</h3>
+      <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+        Nos experts sont à votre disposition pour vous aider à choisir l'équipement adapté à vos besoins
+      </p>
+      <a
+        href="/contact/"
+        class="inline-block px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+      >
+        Contactez-nous
+      </a>
+    </div>
+  </div>
+
+  <!-- Articles Connexes -->
+  {relatedPosts.length > 0 && (
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Articles Connexes</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {relatedPosts.map((relatedPost) => (
+          <article class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            {relatedPost.data.image && (
+              <img
+                src={relatedPost.data.image.src}
+                alt={relatedPost.data.image.alt}
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="p-6">
+              <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full mb-3">
+                {categoryLabels[relatedPost.data.category as keyof typeof categoryLabels]}
+              </span>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">
+                <a href={`/blog/${relatedPost.slug}/`} class="hover:text-blue-600 transition-colors">
+                  {relatedPost.data.title}
+                </a>
+              </h3>
+              <p class="text-gray-700 text-sm mb-4 line-clamp-2">
+                {relatedPost.data.description}
+              </p>
+              <a
+                href={`/blog/${relatedPost.slug}/`}
+                class="text-blue-600 hover:text-blue-800 text-sm font-semibold"
+              >
+                Lire l'article →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+</Layout>
+
+<style>
+  /* Styles Prose pour le contenu Markdown */
+  .prose {
+    color: #374151;
+    max-width: none;
+  }
+
+  .prose h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #111827;
+  }
+
+  .prose h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+  }
+
+  .prose h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+  }
+
+  .prose a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .prose a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+    line-height: 1.75;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid #2563eb;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #4b5563;
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  .prose th {
+    background-color: #f3f4f6;
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid #e5e7eb;
+  }
+
+  .prose td {
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .prose tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+
+  .prose code {
+    background-color: #f3f4f6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    color: #1f2937;
+    font-family: 'Courier New', monospace;
+  }
+
+  .prose pre {
+    background-color: #1f2937;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .prose pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  .prose img {
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .prose strong {
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .prose em {
+    font-style: italic;
+  }
+
+  .prose hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 2rem 0;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

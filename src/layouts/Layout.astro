@@ -1,5 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
 	title: string;
@@ -44,6 +46,9 @@ const { title, description = defaultDescription } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<script is:inline src="/calculator.js" defer></script>
+
+		<!-- Google Analytics 4 -->
+		<GoogleAnalytics />
 	</head>
 	<body>
 		<Navbar />
@@ -125,6 +130,9 @@ const { title, description = defaultDescription } = Astro.props;
 				</div>
 			</div>
 		</footer>
+
+		<!-- Bandeau de Consentement Cookies (RGPD) -->
+		<CookieConsent />
 	</body>
 </html>
 
