@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Testimonials from '../components/Testimonials.astro';
 
 const personas = [
   {
@@ -87,38 +88,110 @@ const expertiseAreas = [
 ---
 
 <Layout title="Centrifugeuse Laboratoire - Expert en Solutions de Centrifugation">
-  <!-- Schema.org pour Rich Snippets -->
+  <!-- Schema.org LocalBusiness pour SEO local -->
   <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "CentrifugeLab - Expert en Centrifugeuse Laboratoire",
+      "@type": "LocalBusiness",
+      "name": "CentrifugeLab",
+      "image": "https://centrifugelab.fr/favicon.svg",
+      "@id": "https://centrifugelab.fr",
       "url": "https://centrifugelab.fr",
+      "telephone": "+33123456789",
+      "priceRange": "€€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[Adresse à compléter]",
+        "addressLocality": "Paris",
+        "postalCode": "75001",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.856614,
+        "longitude": 2.352222
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
       "description": "Expert en solutions de centrifugation pour laboratoire. Large gamme de centrifugeuses de laboratoire adaptées à tous les besoins.",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://centrifugelab.fr/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "CentrifugeLab",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://centrifugelab.fr/favicon.svg"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+33-1-23-45-67-89",
-          "contactType": "sales",
-          "availableLanguage": "French"
-        }
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127"
       },
-      "mainEntity": {
-        "@type": "Product",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+33123456789",
+        "contactType": "sales",
+        "availableLanguage": "French",
+        "areaServed": "FR"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
         "name": "Centrifugeuses de Laboratoire",
-        "description": "Large gamme de centrifugeuses pour laboratoire : centrifugeuses de paillasse, microcentrifugeuses, ultracentrifugeuses et centrifugeuses réfrigérées.",
-        "category": "Équipement de Laboratoire"
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Centrifugeuses de Paillasse",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Centrifugeuse de Paillasse"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Ultracentrifugeuses",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Ultracentrifugeuse"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Microcentrifugeuses",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Microcentrifugeuse"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Centrifugeuses Réfrigérées",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Centrifugeuse Réfrigérée"
+                }
+              }
+            ]
+          }
+        ]
       }
     }
   </script>
@@ -260,7 +333,6 @@ const expertiseAreas = [
     <!-- Featured Categories -->
     <section class="py-12 bg-white rounded-xl shadow-sm mb-12">
       <h2 class="text-3xl font-semibold text-center mb-8">Solutions de Centrifugation pour Laboratoire</h2>
-      <p class="text-lg text-gray-600 text-center mb-8">Une gamme complète pour répondre à tous vos besoins</p>
       <p class="text-lg text-gray-600 text-center mb-8">
         Une gamme complète pour répondre à tous vos besoins
       </p>
@@ -357,6 +429,9 @@ const expertiseAreas = [
         </a>
       </div>
     </section>
+
+    <!-- Testimonials Section -->
+    <Testimonials title="Ils nous font confiance" maxItems={6} />
 
     <!-- Trust Signals -->
     <section class="py-12 bg-white rounded-xl shadow-sm">

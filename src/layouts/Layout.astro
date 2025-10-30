@@ -3,9 +3,11 @@ import Navbar from '../components/Navbar.astro';
 
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const defaultDescription = "Expert en solutions de centrifugation pour laboratoire. Large gamme de centrifugeuses adaptées à tous vos besoins. Installation et support inclus.";
+const { title, description = defaultDescription } = Astro.props;
 ---
 
 <!doctype html>
@@ -13,17 +15,28 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content="Expert en solutions de centrifugation pour laboratoire. Large gamme de centrifugeuses adaptées à tous vos besoins. Installation et support inclus." />
-		<meta name="keywords" content="centrifugeuse laboratoire, centrifugeuse labo, ultracentrifugeuse, microcentrifugeuse, centrifugeuse réfrigérée" />
+		<meta name="description" content={description} />
 		<meta name="author" content="CentrifugeLab" />
 		<meta name="robots" content="index, follow" />
+
+		<!-- Meta tags GEO pour référencement local -->
+		<meta name="geo.region" content="FR" />
+		<meta name="geo.placename" content="France" />
+		<meta name="geo.position" content="48.856614;2.352222" />
+		<meta name="ICBM" content="48.856614, 2.352222" />
+
+		<!-- Mobile et PWA -->
+		<meta name="theme-color" content="#2563eb" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		<meta property="og:title" content={title} />
-		<meta property="og:description" content="Expert en solutions de centrifugation pour laboratoire. Large gamme de centrifugeuses adaptées à tous vos besoins." />
+		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content="/favicon.svg" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content="Expert en solutions de centrifugation pour laboratoire. Large gamme de centrifugeuses adaptées à tous vos besoins." />
+		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content="/favicon.svg" />
 		<link rel="canonical" href={Astro.url.href} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -34,7 +47,9 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Navbar />
-		<slot />
+		<main id="main-content">
+			<slot />
+		</main>
 		<footer class="bg-gray-900 text-white mt-12">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 				<div class="grid md:grid-cols-4 gap-8">
@@ -112,6 +127,32 @@ const { title } = Astro.props;
 		</footer>
 	</body>
 </html>
+
+<style is:global>
+	/* Classe pour skip navigation */
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	.focus\:not-sr-only:focus {
+		position: static;
+		width: auto;
+		height: auto;
+		padding: inherit;
+		margin: inherit;
+		overflow: visible;
+		clip: auto;
+		white-space: normal;
+	}
+</style>
 
 <style>
 	html,

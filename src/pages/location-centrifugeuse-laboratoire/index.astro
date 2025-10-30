@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+const metaDescription = "Location centrifugeuse laboratoire courte/longue durée. Installation incluse. Maintenance comprise. Solutions flexibles. Devis gratuit sous 24h.";
+
 const avantagesLocation = [
   {
     titre: 'Flexibilité Maximale',
@@ -98,7 +100,9 @@ const ressourcesUtiles = [
 ];
 ---
 
-<Layout title="Location Centrifugeuse Laboratoire - Solution Flexible">
+<Layout
+  title="Location Centrifugeuse Laboratoire - Solution Flexible"
+  description={metaDescription}>
   <!-- Schema.org pour Rich Snippets -->
   <script type="application/ld+json" slot="head">
     {

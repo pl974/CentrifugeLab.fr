@@ -1,0 +1,80 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#EFF6FF"/>
+
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="app-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#DBEAFE" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#app-grid)"/>
+
+  <!-- Lab Scene -->
+  <g transform="translate(400, 250)">
+    <!-- Lab bench -->
+    <rect x="-200" y="80" width="400" height="20" fill="#94A3B8"/>
+    <rect x="-220" y="100" width="440" height="10" fill="#64748B"/>
+
+    <!-- Centrifuge -->
+    <g transform="translate(-80, 30)">
+      <rect x="-40" y="-30" width="80" height="80" rx="5" fill="#3B82F6" opacity="0.9"/>
+      <circle cx="0" cy="10" r="20" fill="#1E40AF" opacity="0.3"/>
+      <rect x="-35" y="-25" width="70" height="15" rx="3" fill="#1E293B"/>
+    </g>
+
+    <!-- Scientist figure -->
+    <g transform="translate(60, 20)">
+      <!-- Head -->
+      <circle cx="0" cy="-30" r="18" fill="#F3F4F6"/>
+      <!-- Lab coat -->
+      <path d="M -20,-15 L -25,70 L -10,70 L -8,10 L 8,10 L 10,70 L 25,70 L 20,-15 Z" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+      <!-- Arms -->
+      <line x1="-20" y1="0" x2="-40" y2="30" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+      <line x1="20" y1="0" x2="35" y2="25" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+      <!-- Hand with tube -->
+      <circle cx="35" cy="30" r="4" fill="#F3F4F6"/>
+      <rect x="32" y="30" width="6" height="20" rx="3" fill="#3B82F6" opacity="0.6"/>
+    </g>
+
+    <!-- Lab equipment -->
+    <!-- Microscope -->
+    <g transform="translate(140, 50)">
+      <rect x="-8" y="0" width="16" height="40" fill="#6B7280"/>
+      <ellipse cx="0" cy="0" rx="15" ry="8" fill="#9CA3AF"/>
+      <rect x="-20" y="40" width="40" height="6" rx="3" fill="#6B7280"/>
+    </g>
+
+    <!-- Test tubes rack -->
+    <g transform="translate(-140, 60)">
+      <rect x="-25" y="0" width="50" height="30" fill="#94A3B8" opacity="0.5"/>
+      <rect x="-20" y="-15" width="6" height="15" fill="#10B981" opacity="0.6"/>
+      <rect x="-8" y="-12" width="6" height="12" fill="#3B82F6" opacity="0.6"/>
+      <rect x="4" y="-18" width="6" height="18" fill="#EF4444" opacity="0.6"/>
+      <rect x="16" y="-10" width="6" height="10" fill="#F59E0B" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Icon in corner -->
+  <g transform="translate(70, 70)">
+    <circle cx="0" cy="0" r="30" fill="#FFFFFF" opacity="0.8"/>
+    <path d="M -12,-8 L -12,8 M 0,-8 L 0,8 M 12,-8 L 12,8" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="-12" cy="0" r="2" fill="#3B82F6"/>
+    <circle cx="0" cy="0" r="2" fill="#3B82F6"/>
+    <circle cx="12" cy="0" r="2" fill="#3B82F6"/>
+  </g>
+
+  <!-- Text -->
+  <text x="400" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#1E40AF" text-anchor="middle">
+    Photo Application en Contexte
+  </text>
+  <text x="400" y="505" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#3B82F6" text-anchor="middle">
+    Laboratoire - Utilisation Réelle
+  </text>
+  <text x="400" y="535" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#60A5FA" text-anchor="middle">
+    Photo professionnelle à venir
+  </text>
+
+  <!-- Border -->
+  <rect x="1" y="1" width="798" height="598" rx="4" fill="none" stroke="#BFDBFE" stroke-width="2"/>
+</svg>

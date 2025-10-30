@@ -1,0 +1,214 @@
+---
+/**
+ * Composant ProductImage
+ * Affiche des images de produits optimisées avec:
+ * - Format WebP + fallback JPG
+ * - Lazy loading
+ * - Alt text SEO-optimisé
+ * - Responsive images
+ * - Fallback vers placeholder si image manquante
+ */
+
+import { getProductImage, imagePlaceholder } from '../config/images';
+
+interface Props {
+  category: string;
+  index?: number;
+  loading?: 'lazy' | 'eager';
+  className?: string;
+  sizes?: string;
+  priority?: boolean;
+}
+
+const {
+  category,
+  index = 0,
+  loading = 'lazy',
+  className = '',
+  sizes = '(max-width: 640px) 400px, (max-width: 1024px) 800px, 1600px',
+  priority = false
+} = Astro.props;
+
+// Récupérer l'image depuis la config
+const image = getProductImage(category, index);
+
+// Déterminer si l'image existe (vérifier si c'est un placeholder)
+const isPlaceholder = image.src === imagePlaceholder.product;
+
+// Générer les URLs pour différentes résolutions
+const generateSrcSet = (baseSrc: string) => {
+  if (isPlaceholder) return baseSrc;
+
+  const ext = baseSrc.split('.').pop();
+  const baseWithoutExt = baseSrc.replace(`.${ext}`, '');
+
+  return `
+    ${baseWithoutExt}-400.${ext} 400w,
+    ${baseWithoutExt}-800.${ext} 800w,
+    ${baseWithoutExt}-1600.${ext} 1600w
+  `.trim();
+};
+
+// URLs WebP
+const webpSrc = image.src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+const webpSrcSet = generateSrcSet(webpSrc);
+
+// URLs JPG (fallback)
+const jpgSrcSet = generateSrcSet(image.src);
+
+// Déterminer le mode de chargement
+const loadingAttr = priority ? 'eager' : loading;
+const fetchPriority = priority ? 'high' : 'auto';
+---
+
+<picture class={`product-image-wrapper ${className}`}>
+  {!isPlaceholder && (
+    <!-- Format WebP (optimal) -->
+    <source
+      type="image/webp"
+      srcset={webpSrcSet}
+      sizes={sizes}
+    />
+  )}
+
+  <!-- Fallback JPG ou placeholder SVG -->
+  <img
+    src={image.src}
+    srcset={!isPlaceholder ? jpgSrcSet : undefined}
+    sizes={!isPlaceholder ? sizes : undefined}
+    alt={image.alt}
+    title={image.title || image.alt}
+    width={image.width || 800}
+    height={image.height || 600}
+    loading={loadingAttr}
+    decoding="async"
+    fetchpriority={fetchPriority}
+    class={`product-image ${isPlaceholder ? 'placeholder' : ''}`}
+  />
+
+  {isPlaceholder && (
+    <!-- Indicateur que l'image est un placeholder -->
+    <div class="placeholder-indicator">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span class="text-xs">Image temporaire</span>
+    </div>
+  )}
+</picture>
+
+<style>
+  .product-image-wrapper {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .product-image.placeholder {
+    opacity: 0.7;
+  }
+
+  .product-image-wrapper:hover .product-image:not(.placeholder) {
+    transform: scale(1.05);
+  }
+
+  /* Indicateur placeholder */
+  .placeholder-indicator {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(37, 99, 235, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .placeholder-indicator svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Skeleton loading state */
+  .product-image[loading="lazy"] {
+    background: linear-gradient(
+      90deg,
+      #f3f4f6 0%,
+      #e5e7eb 50%,
+      #f3f4f6 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Aspect ratio preservation */
+  .product-image-wrapper::before {
+    content: '';
+    display: block;
+    padding-top: 75%; /* 4:3 aspect ratio (600/800) */
+  }
+
+  .product-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Responsive ajustements */
+  @media (max-width: 640px) {
+    .placeholder-indicator {
+      top: 8px;
+      right: 8px;
+      padding: 4px 8px;
+      font-size: 11px;
+    }
+
+    .placeholder-indicator svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+</style>
+
+<!-- Preload hint for priority images -->
+{priority && !isPlaceholder && (
+  <link
+    rel="preload"
+    as="image"
+    href={image.src}
+    imagesrcset={jpgSrcSet}
+    imagesizes={sizes}
+    slot="head"
+  />
+)}

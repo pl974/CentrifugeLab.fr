@@ -1,0 +1,59 @@
+# robots.txt pour CentrifugeLab.fr
+# Optimisé pour SEO - Dernière mise à jour: 30 Octobre 2025
+
+# Configuration principale pour tous les robots
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://centrifugelab.fr/sitemap.xml
+
+# Interdire l'indexation des pages de formulaires (évite duplicate content)
+Disallow: /*/demande/
+Disallow: /devis-centrifugeuse/*?*
+
+# Autoriser explicitement les pages importantes
+Allow: /
+Allow: /centrifugeuses/
+Allow: /applications/
+Allow: /services/
+Allow: /guide-achat-centrifugeuse-laboratoire/
+
+# Configuration Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Configuration Google Images (important pour SEO images)
+User-agent: Googlebot-Image
+Allow: /
+
+# Configuration Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Interdire les mauvais bots (scrapers, spam)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Configuration spécifique pour les réseaux sociaux (Open Graph)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Note: Ajuster https://centrifugelab.fr avec le domaine réel en production

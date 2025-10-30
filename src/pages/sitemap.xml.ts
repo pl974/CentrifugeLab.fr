@@ -10,28 +10,54 @@ export async function GET() {
  
   // Concatène toutes les pages statiques et dynamiques
   const pages = [
+    // Page d'accueil
     '/',
-    '/blog',
-    '/contact',
-    '/centrifugeuses',
-    '/centrifugeuses/paillasse',
-    '/centrifugeuses/micro',
-    '/centrifugeuses/ultra',
-    '/centrifugeuses/refrigerees',
-    '/guide-achat-centrifugeuse-laboratoire',
-    '/guide',
-    '/guide/choisir-rotor-centrifugeuse',
-    '/guide/calcul-force-centrifuge',
-    '/guide/protocoles-centrifugation',
-    '/applications/centrifugeuse-biologie-medicale',
-    '/applications/centrifugeuse-recherche-scientifique',
-    '/applications/centrifugeuse-industrie-pharmaceutique',
-    '/applications/centrifugeuse-chimie-analytique',
-    '/applications/centrifugeuse-environnement',
-    '/services',
-    '/maintenance/entretien-centrifugeuse-laboratoire',
+
+    // Catégories principales
+    '/centrifugeuses/',
+    '/centrifugeuses/paillasse/',
+    '/centrifugeuses/micro/',
+    '/centrifugeuses/ultra/',
+    '/centrifugeuses/refrigerees/',
+
+    // Guides
+    '/guide-achat-centrifugeuse-laboratoire/',
+    '/guide/choisir-rotor-centrifugeuse/',
+    '/guide/calcul-force-centrifuge/',
+    '/guide/protocoles-centrifugation/',
+
+    // Applications
+    '/applications/',
+    '/applications/centrifugeuse-biologie-medicale/',
+    '/applications/centrifugeuse-recherche-scientifique/',
+    '/applications/centrifugeuse-industrie-pharmaceutique/',
+    '/applications/centrifugeuse-chimie-analytique/',
+    '/applications/centrifugeuse-environnement/',
+
+    // Services
+    '/services/',
+    '/maintenance/entretien-centrifugeuse-laboratoire/',
     '/formation-utilisation-centrifugeuse/',
-    '/location-centrifugeuse-laboratoire/'
+    '/formation-utilisation-centrifugeuse/demande/',
+    '/location-centrifugeuse-laboratoire/',
+    '/location-centrifugeuse-laboratoire/demande/',
+    '/devis-centrifugeuse/',
+
+    // Solutions par persona
+    '/solutions/lab-manager/',
+    '/solutions/scientist/',
+    '/solutions/buyer/',
+
+    // Sécurité et normes
+    '/securite/normes-centrifugeuse-laboratoire/',
+
+    // Pages légales (Sprint 1)
+    '/mentions-legales/',
+    '/politique-confidentialite/',
+    '/cgv/',
+
+    // Contact
+    '/contact/'
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

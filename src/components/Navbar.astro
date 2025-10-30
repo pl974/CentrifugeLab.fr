@@ -45,13 +45,18 @@ const menuItems = [
 ];
 ---
 
-<nav class="bg-white shadow-sm sticky top-0 z-50">
+<!-- Skip Navigation pour accessibilité -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white">
+  Aller au contenu principal
+</a>
+
+<nav class="bg-white shadow-sm sticky top-0 z-50" role="navigation" aria-label="Navigation principale">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <!-- Logo -->
       <div class="flex-shrink-0 flex items-center space-x-2">
-        <a href="/" class="text-xl font-bold text-blue-600 flex items-center gap-2">
-          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="/" class="text-xl font-bold text-blue-600 flex items-center gap-2" aria-label="Retour à l'accueil CentrifugeLab">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
             <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2"/>
           </svg>
@@ -91,7 +96,7 @@ const menuItems = [
           </div>
         ))}
 
-        <a href="/devis-centrifugeuse/?utm_source=nav_cta" class="btn-primary">
+        <a href="/devis-centrifugeuse/?utm_source=nav_cta" class="btn-primary" aria-label="Demander un devis personnalisé">
           <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
             <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
