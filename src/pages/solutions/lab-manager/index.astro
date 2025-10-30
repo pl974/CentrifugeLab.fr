@@ -165,7 +165,7 @@ const ressources = [
     }
   </script>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->
     <div class="mb-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">
@@ -177,7 +177,7 @@ const ressources = [
       </p>
       <div class="flex gap-4">
         <a href="/devis-centrifugeuse/?persona=lab-manager&utm_source=lab_manager" class="btn-primary">
-          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+          <svg class="w-5 h-5 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
             <path d="M9 12H15M12 9V15M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           Devis Personnalisé
@@ -198,17 +198,17 @@ const ressources = [
           <div class="bg-white rounded-lg shadow-sm p-6">
             <div class="mb-4">
               {point.icon === 'budget' && (
-                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                <svg class="w-12 h-12 text-blue-600" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                   <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 8v1m0-8c-1.11 0-2.08.402-2.599 1M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
               )}
               {point.icon === 'performance' && (
-                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                <svg class="w-12 h-12 text-blue-600" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                   <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               )}
               {point.icon === 'compliance' && (
-                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none">
+                <svg class="w-12 h-12 text-blue-600" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                   <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               )}
@@ -218,7 +218,7 @@ const ressources = [
             <ul class="space-y-2">
               {point.points.map(item => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   <span>{item}</span>
@@ -244,7 +244,7 @@ const ressources = [
               <ul class="space-y-2">
                 {Object.entries(solution.specs).map(([key, value]) => (
                   <li class="flex items-start">
-                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                    <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                       <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <span>{key}: {value}</span>
@@ -284,7 +284,7 @@ const ressources = [
             <ul class="space-y-2 mb-6">
               {service.points.map(point => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" viewBox="0 0 24 24" fill="none">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   <span>{point}</span>
@@ -293,7 +293,7 @@ const ressources = [
             </ul>
             <a href={service.url} class="text-blue-600 hover:text-blue-800 flex items-center">
               En savoir plus
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+              <svg class="w-4 h-4 ml-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
@@ -312,7 +312,7 @@ const ressources = [
             <p class="text-gray-600 mb-4">{app.description}</p>
             <div class="text-blue-600 flex items-center">
               Découvrir les solutions
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
+              <svg class="w-4 h-4 ml-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
@@ -332,7 +332,7 @@ const ressources = [
               {section.liens.map(lien => (
                 <li>
                   <a href={lien.url} class="text-blue-600 hover:text-blue-800 flex items-center">
-                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                    <svg class="w-4 h-4 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
                       <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     {lien.texte}
@@ -352,13 +352,13 @@ const ressources = [
         Nos experts sont là pour vous accompagner dans le choix et l'optimisation de vos équipements
       </p>
       <a href="/devis-centrifugeuse/?persona=lab-manager&utm_source=lab_manager_bottom" class="btn-primary inline-flex items-center">
-        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+        <svg class="w-5 h-5 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="none">
           <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Contacter un Expert
       </a>
     </div>
-  </main>
+  </div>
 </Layout>
 
 <style>
