@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
 
 const metaDescription = "Guide complet achat centrifugeuse laboratoire 2025. Comparatif, critères de choix, prix. Conseils experts. Trouvez le modèle idéal pour vos besoins.";
 
@@ -129,7 +130,7 @@ const ressourcesUtiles = [
 <Layout
   title="Guide d'Achat Centrifugeuse Laboratoire - Conseils d'Experts"
   description={metaDescription}>
-  <!-- Schema.org pour Rich Snippets -->
+  <!-- Schema.org BuyersGuide -->
   <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
@@ -142,6 +143,54 @@ const ressourcesUtiles = [
       }
     }
   </script>
+
+  <!-- Schema.org FAQPage pour Rich Snippets -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel volume d'échantillon pour ma centrifugeuse ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le choix du volume dépend de vos applications : microtubes (0.2-2.0 mL) pour PCR et biologie moléculaire, tubes standards (15-50 mL) pour culture cellulaire, et grands volumes (jusqu'à 750 mL) pour production. C'est un critère critique pour l'efficacité du laboratoire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle vitesse de rotation choisir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La vitesse détermine la force centrifuge : basse vitesse (jusqu'à 4,000 RPM) pour séparations douces, haute vitesse (jusqu'à 15,000 RPM) pour applications standard, et ultra-vitesse (> 50,000 RPM) pour séparations moléculaires. La vitesse détermine la qualité de séparation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ai-je besoin d'une centrifugeuse réfrigérée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le contrôle de température est essentiel pour protéger les échantillons thermosensibles. Options : température ambiante pour applications basiques, réfrigérée (0 à +40°C) pour protéines et cellules vivantes, ou cryo-centrifugation (-20°C) pour échantillons très sensibles. C'est essentiel pour la préservation des échantillons."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel type de rotor choisir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le rotor impact directement les résultats : angle fixe pour séparation rapide (culots denses), godets mobiles pour gradients de densité, ou vertical pour séparation isopycnique. Le choix dépend de vos protocoles spécifiques."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <!-- Fil d'Ariane -->
+  <BreadcrumbSchema items={[
+    { name: 'Accueil', url: '/' },
+    { name: 'Guide d\'Achat Centrifugeuse', url: '/guide-achat-centrifugeuse-laboratoire/' }
+  ]} />
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->

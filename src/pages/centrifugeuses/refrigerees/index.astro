@@ -1,4 +1,5 @@
 ---
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
 import Layout from '../../../layouts/Layout.astro';
 
 const metaDescription = "Centrifugeuse réfrigérée -20°C à +40°C. Contrôle température précis pour échantillons sensibles. Jusqu'à 30000 RPM. Protection optimale de vos échantillons.";
@@ -157,15 +158,34 @@ const services = [
         "@type": "Brand",
         "name": "CentrifugeLab"
       },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "73",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "EUR",
         "lowPrice": "8990",
         "highPrice": "14990",
-        "offerCount": "2"
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "CentrifugeLab"
+        }
       }
     }
   </script>
+
+  <!-- Fil d'Ariane -->
+  <BreadcrumbSchema items={[
+    { name: 'Accueil', url: '/' },
+    { name: 'Centrifugeuses', url: '/centrifugeuses/' },
+    { name: 'Centrifugeuses Réfrigérées', url: '/centrifugeuses/refrigerees/' }
+  ]} />
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->

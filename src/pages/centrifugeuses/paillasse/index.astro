@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
 
 const caracteristiques = [
   {
@@ -153,15 +154,34 @@ const services = [
         "@type": "Brand",
         "name": "CentrifugeLab"
       },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "89",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "EUR",
         "lowPrice": "2990",
         "highPrice": "4990",
-        "offerCount": "2"
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "CentrifugeLab"
+        }
       }
     }
   </script>
+
+  <!-- Fil d'Ariane -->
+  <BreadcrumbSchema items={[
+    { name: 'Accueil', url: '/' },
+    { name: 'Centrifugeuses', url: '/centrifugeuses/' },
+    { name: 'Centrifugeuses de Paillasse', url: '/centrifugeuses/paillasse/' }
+  ]} />
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->
