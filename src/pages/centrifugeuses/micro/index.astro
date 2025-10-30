@@ -1,6 +1,9 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
+// Meta description optimisée pour le SEO
+const metaDescription = "Microcentrifugeuse haute précision pour laboratoire. 21000 RPM, volume 0.2-2.0mL. Compacte et silencieuse. Installation rapide. Devis sous 24h. 25 ans d'expertise.";
+
 const caracteristiques = [
   {
     titre: 'Performance',
@@ -141,7 +144,9 @@ const services = [
 ];
 ---
 
-<Layout title="Microcentrifugeuse - Solution Compacte pour Petits Volumes">
+<Layout
+  title="Microcentrifugeuse - Solution Compacte pour Petits Volumes"
+  description={metaDescription}>
   <!-- Schema.org pour Rich Snippets -->
   <script type="application/ld+json" slot="head">
     {

@@ -1,6 +1,8 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
+const metaDescription = "Centrifugeuse biologie médicale: Analyses sang, urines, tests cliniques. Conformité normes ISO. Installation et formation incluses. Maintenance certifiée.";
+
 const applications = [
   {
     titre: 'Analyses Sanguines',
@@ -140,7 +142,9 @@ const ressourcesUtiles = [
 ];
 ---
 
-<Layout title="Centrifugeuse Biologie Médicale - Applications et Solutions">
+<Layout
+  title="Centrifugeuse Biologie Médicale - Applications et Solutions"
+  description={metaDescription}>
   <!-- Schema.org pour Rich Snippets -->
   <script type="application/ld+json" slot="head">
     {

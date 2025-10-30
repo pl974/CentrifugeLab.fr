@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Testimonials from '../components/Testimonials.astro';
 
 const personas = [
   {
@@ -428,6 +429,9 @@ const expertiseAreas = [
         </a>
       </div>
     </section>
+
+    <!-- Testimonials Section -->
+    <Testimonials title="Ils nous font confiance" maxItems={6} />
 
     <!-- Trust Signals -->
     <section class="py-12 bg-white rounded-xl shadow-sm">

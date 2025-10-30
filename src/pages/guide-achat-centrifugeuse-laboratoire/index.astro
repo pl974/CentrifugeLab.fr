@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+const metaDescription = "Guide complet achat centrifugeuse laboratoire 2025. Comparatif, critères de choix, prix. Conseils experts. Trouvez le modèle idéal pour vos besoins.";
+
 const criteresChoix = [
   {
     titre: 'Volume d\'Échantillon',
@@ -124,7 +126,9 @@ const ressourcesUtiles = [
 ];
 ---
 
-<Layout title="Guide d'Achat Centrifugeuse Laboratoire - Conseils d'Experts">
+<Layout
+  title="Guide d'Achat Centrifugeuse Laboratoire - Conseils d'Experts"
+  description={metaDescription}>
   <!-- Schema.org pour Rich Snippets -->
   <script type="application/ld+json" slot="head">
     {

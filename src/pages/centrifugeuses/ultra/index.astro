@@ -1,6 +1,8 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
+const metaDescription = "Ultracentrifugeuse 150000 RPM pour recherche avancée. Force 1,000,000×g. Volume 0.2-30mL. Séparation moléculaire ultra-précise. Support expert 24/7.";
+
 const caracteristiques = [
   {
     titre: 'Performance Extrême',
@@ -141,7 +143,9 @@ const services = [
 ];
 ---
 
-<Layout title="Ultracentrifugeuse - Performance Extrême pour Applications Avancées">
+<Layout
+  title="Ultracentrifugeuse - Performance Extrême pour Applications Avancées"
+  description={metaDescription}>
   <!-- Schema.org pour Rich Snippets -->
   <script type="application/ld+json" slot="head">
     {

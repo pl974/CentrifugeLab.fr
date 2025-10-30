@@ -1,6 +1,8 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
+const metaDescription = "Maintenance centrifugeuse laboratoire: Entretien préventif, calibration certifiée, pièces d'origine. Contrats flexibles. Intervention rapide. Support 24/7.";
+
 const maintenanceSteps = [
   {
     title: 'Inspection Quotidienne',
@@ -100,7 +102,9 @@ const relatedContent = [
 ];
 ---
 
-<Layout title="Guide Maintenance Centrifugeuse Laboratoire - Entretien Expert">
+<Layout
+  title="Guide Maintenance Centrifugeuse Laboratoire - Entretien Expert"
+  description={metaDescription}>
   <!-- Schema.org pour Rich Snippets -->
   <script type="application/ld+json" slot="head">
     {
